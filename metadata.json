@@ -1,0 +1,8 @@
+{
+  "name": "Remix: FURmedia",
+  "description": "SEO and AEO friendly professional website showcasing the digital services and physical product divisions of FurMedia.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
