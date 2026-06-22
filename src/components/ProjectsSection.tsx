@@ -20,13 +20,17 @@ export default function ProjectsSection() {
   const [kidMealScreen, setKidMealScreen] = useState<string>("discovery");
   const [kidMealViewMode, setKidMealViewMode] = useState<"emulator" | "large-grid">("large-grid");
 
+  // Enterprise BI Dashboard Sandbox states
+  const [biSegment, setBiSegment] = useState<"all" | "perfumes" | "linens" | "consulting">("all");
+  const [biForecast, setBiForecast] = useState<boolean>(true);
+
   const getTabLabel = (id: string, idx: number) => {
     switch (id) {
-      case "project-ledger": return "Sovereign Ledger";
-      case "project-vitality": return "Stay Vitality";
-      case "project-apex-vigor": return "Apex Vigor";
-      case "project-aerovoyage": return "AeroVoyage";
-      case "project-boatscout": return "Boat Scout";
+      case "project-ledger": return "Sovereign BI Suite";
+      case "project-vitality": return "Scent Lab Analytics";
+      case "project-apex-vigor": return "IoT Telemetry";
+      case "project-aerovoyage": return "AeroVoyage Core";
+      case "project-boatscout": return "Boat Scout DB";
       case "project-rentease": return "RentEase Pro";
       case "project-reeldine": return "ReelDine Social";
       case "project-kidmeal": return "KidMeal App";
@@ -1960,80 +1964,222 @@ export default function ProjectsSection() {
           </div>
         );
 
-      case "project-ledger":
+      case "project-ledger": {
+        const selectedData = {
+          all: {
+            title: "Executive BI Portfolio",
+            points: [45, 52, 61, 58, 72, 89],
+            predicted: [102, 118],
+            conversion: "6.2%",
+            clv: "$420",
+            activeUsers: "124K",
+            sql: "SELECT date_trunc('month', sale_date) AS month,\n       sum(revenue) AS net_rev\nFROM furmedia.transactions\nGROUP BY 1 ORDER BY 1;"
+          },
+          perfumes: {
+            title: "Retail Scent Analytics",
+            points: [18, 21, 26, 24, 31, 39],
+            predicted: [43, 49],
+            conversion: "5.8%",
+            clv: "$320",
+            activeUsers: "48K",
+            sql: "SELECT date_trunc('month', sale_date) as month,\n       sum(revenue) AS net_rev\nFROM furmedia.transactions\nWHERE product_division = 'perfumes'\nGROUP BY 1 ORDER BY 1;"
+          },
+          linens: {
+            title: "Linen Demand Forecasting",
+            points: [15, 18, 21, 19, 24, 29],
+            predicted: [32, 36],
+            conversion: "4.9%",
+            clv: "$550",
+            activeUsers: "34K",
+            sql: "SELECT date_trunc('month', sale_date) as month,\n       sum(revenue) AS net_rev\nFROM furmedia.transactions\nWHERE product_division = 'linens'\nGROUP BY 1 ORDER BY 1;"
+          },
+          consulting: {
+            title: "Digital BI Advisory",
+            points: [12, 13, 14, 15, 17, 21],
+            predicted: [24, 28],
+            conversion: "8.5%",
+            clv: "$1,200",
+            activeUsers: "1.2K",
+            sql: "SELECT date_trunc('month', sale_date) as month,\n       sum(revenue) AS net_rev\nFROM furmedia.transactions\nWHERE product_division = 'digital_bi'\nGROUP BY 1 ORDER BY 1;"
+          }
+        }[biSegment];
+
+        const maxPointsVal = Math.max(...selectedData.points, ...selectedData.predicted);
+        
+        // Generate SVG points path for historic data
+        const svgPoints = selectedData.points.map((val, idx) => {
+          const x = (idx * 35) + 20;
+          const y = 80 - (val / maxPointsVal) * 55;
+          return { x, y, val };
+        });
+
+        const pointsPath = svgPoints.map((p, idx) => `${idx === 0 ? 'M' : 'L'} ${p.x} ${p.y}`).join(' ');
+        
+        // Generate forecast points paths
+        const forecastStartPoint = svgPoints[svgPoints.length - 1];
+        const forecastPoints = selectedData.predicted.map((val, idx) => {
+          const x = ((idx + 6) * 35) + 20;
+          const y = 80 - (val / maxPointsVal) * 55;
+          return { x, y, val };
+        });
+
+        const forecastPath = [`M ${forecastStartPoint.x} ${forecastStartPoint.y}`, ...forecastPoints.map(p => `L ${p.x} ${p.y}`)].join(' ');
+
+        // Area gradients
+        const areaPath = `${pointsPath} L ${svgPoints[svgPoints.length-1].x} 85 L 20 85 Z`;
+        const forecastAreaPath = `M ${forecastStartPoint.x} ${forecastStartPoint.y} ${forecastPoints.map(p => `L ${p.x} ${p.y}`).join(' ')} L ${forecastPoints[forecastPoints.length-1].x} 85 L ${forecastStartPoint.x} 85 Z`;
+
         return (
-          <div className="bg-[#fcfaf7] text-[#2c2b29] rounded-2xl p-4 font-sans shadow-xl border border-black/10 text-xs flex flex-col h-[425px] justify-between transition-all duration-300">
+          <div className="bg-[#0b0c10] text-[#c5c6c7] rounded-2xl p-3.5 font-sans shadow-2xl border border-white/10 text-[10px] flex flex-col h-[425px] justify-between transition-all duration-300 relative overflow-hidden">
             <div>
-              {/* Top Bar */}
-              <div className="flex justify-between items-center text-[10px] font-semibold text-[#6e6c69] pb-2 border-b border-[#e5e1db]">
-                <span className="font-mono text-[11px] font-bold">Statistics</span>
-                <div className="flex gap-2">
-                  <span>🔍</span>
-                  <span>⋮</span>
+              {/* Terminal Title Header */}
+              <div className="flex justify-between items-center text-[9px] pb-2 border-b border-white/[0.08] font-mono">
+                <div className="flex items-center gap-1.5">
+                  <span className="w-2.5 h-2.5 rounded-full bg-red-500/80"></span>
+                  <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></span>
+                  <span className="w-2.5 h-2.5 rounded-full bg-green-500/80"></span>
+                  <span className="text-white font-semibold ml-1 font-sans">FURmedia Corporate BI Platform</span>
                 </div>
+                <span className="text-[#00ff99] font-bold text-[8px] tracking-wider uppercase">LOGS: LIVE</span>
               </div>
 
-              {/* Calendar Selector */}
-              <div className="flex justify-between items-center bg-[#f0ede6] px-3 py-1 text-[10px] font-medium rounded-full my-2.5">
-                <span>‹</span>
-                <span className="flex items-center gap-1 font-semibold">📅 May, 2021</span>
-                <span>›</span>
-              </div>
-
-              {/* Overview Multi-Color Slices */}
-              <div className="space-y-1 mb-2.5">
-                <span className="text-[8px] font-mono tracking-widest text-[#8e8c89] uppercase">Overview</span>
-                <div className="h-4.5 rounded flex overflow-hidden">
-                  <div className="bg-[#5cc5e0] w-[32%]" />
-                  <div className="bg-[#e9809c] w-[32%]" />
-                  <div className="bg-[#8ec290] w-[12%]" />
-                  <div className="bg-[#c290cc] w-[12%]" />
-                  <div className="bg-[#fba29e] w-[12%]" />
-                </div>
-              </div>
-
-              {/* Details List */}
-              <div className="space-y-1 overflow-y-auto max-h-[165px] pr-1">
-                <span className="text-[8px] font-mono tracking-widest text-[#8e8c89] uppercase block mb-0.5">Details</span>
-                {[
-                  { label: "Transportation", tx: "36 transactions", val: "- ₹5300", pct: "32%", bg: "bg-[#e2f3f7]" },
-                  { label: "Health", tx: "16 transactions", val: "- ₹3100", pct: "32%", bg: "bg-[#fbe5eb]" },
-                  { label: "Personal", tx: "12 transactions", val: "- ₹2320", pct: "12%", bg: "bg-[#e5f5e6]" },
-                  { label: "Gifts", tx: "12 transactions", val: "- ₹1440", pct: "12%", bg: "bg-[#f3e5f5]" },
-                  { label: "Electronics", tx: "12 transactions", val: "- ₹800", pct: "12%", bg: "bg-[#fbebee]" },
-                ].map((item, idx) => (
-                  <div key={idx} className="flex justify-between items-center p-1 rounded-lg hover:bg-black/5 transition-all">
-                    <div className="flex items-center gap-1.5">
-                      <div className={`w-5 h-5 rounded-full ${item.bg} flex items-center justify-center text-[9px] shrink-0`}>
-                        {idx === 0 ? "🚌" : idx === 1 ? "🛡️" : idx === 2 ? "🛍️" : idx === 3 ? "🎁" : "💻"}
-                      </div>
-                      <div className="min-w-0">
-                        <div className="font-semibold text-[9px] text-gray-800 leading-none truncate">{item.label}</div>
-                        <div className="text-[7px] text-gray-400 mt-0.5">{item.tx}</div>
-                      </div>
-                    </div>
-                    <div className="text-right shrink-0">
-                      <div className="font-mono text-red-500 font-semibold text-[9px]">{item.val}</div>
-                      <div className="text-[7px] text-gray-400">{item.pct}</div>
-                    </div>
-                  </div>
+              {/* Data Segment Selectors */}
+              <div className="grid grid-cols-4 gap-1 p-0.5 bg-white/5 rounded-lg my-2 text-[8px] font-mono">
+                {(["all", "perfumes", "linens", "consulting"] as const).map((seg) => (
+                  <button
+                    key={seg}
+                    onClick={() => setBiSegment(seg)}
+                    className={`py-1 rounded text-center uppercase font-bold transition-all cursor-pointer ${
+                      biSegment === seg
+                        ? "bg-[#00ff99] text-black shadow-md font-extrabold"
+                        : "text-gray-400 hover:text-white"
+                    }`}
+                  >
+                    {seg}
+                  </button>
                 ))}
+              </div>
+
+              {/* KPI Scorecard Grid */}
+              <div className="grid grid-cols-3 gap-1.5 my-1.5 font-mono">
+                <div className="bg-white/[0.03] border border-white/[0.06] p-1.5 rounded-lg text-center">
+                  <span className="text-[6px] text-gray-400 uppercase block">Active Users</span>
+                  <span className="text-white font-extrabold text-[11px] block mt-0.5">{selectedData.activeUsers}</span>
+                </div>
+                <div className="bg-white/[0.03] border border-white/[0.06] p-1.5 rounded-lg text-center">
+                  <span className="text-[6px] text-gray-400 uppercase block">Conversion Rate</span>
+                  <span className="text-[#00ff99] font-extrabold text-[11px] block mt-0.5">{selectedData.conversion}</span>
+                </div>
+                <div className="bg-white/[0.03] border border-white/[0.06] p-1.5 rounded-lg text-center">
+                  <span className="text-[6px] text-gray-400 uppercase block">CLV Index</span>
+                  <span className="text-[#ffbf00] font-extrabold text-[11px] block mt-0.5">{selectedData.clv}</span>
+                </div>
+              </div>
+
+              {/* Integrated SVG Interactive Chart */}
+              <div className="bg-white/[0.02] border border-white/[0.06] p-2 rounded-xl relative my-1.5 h-[125px] flex flex-col justify-between">
+                <div className="flex justify-between items-center text-[7px] text-gray-400 font-mono">
+                  <span>Gross Net Trend / Predictive Forecast (Revenue Units)</span>
+                  <button 
+                    onClick={() => setBiForecast(!biForecast)}
+                    className={`px-1.5 py-0.5 rounded text-[6px] font-bold uppercase transition-all ${
+                      biForecast ? "bg-[#00ff99]/20 text-[#00ff99]" : "bg-white/10 text-gray-400"
+                    }`}
+                  >
+                    {biForecast ? "● Forecast Run On" : "● Forecast Run Off"}
+                  </button>
+                </div>
+
+                <div className="relative flex-1 mt-1.5">
+                  <svg className="w-full h-full overflow-visible" viewBox="0 0 280 90">
+                    <defs>
+                      <linearGradient id="chartGradient" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stopColor="#00ff99" stopOpacity="0.25" />
+                        <stop offset="100%" stopColor="#00ff99" stopOpacity="0" />
+                      </linearGradient>
+                      <linearGradient id="forecastGradient" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stopColor="#ffbf00" stopOpacity="0.25" />
+                        <stop offset="100%" stopColor="#ffbf00" stopOpacity="0" />
+                      </linearGradient>
+                    </defs>
+
+                    {/* Chart Gridlines */}
+                    <line x1="20" y1="20" x2="260" y2="20" stroke="white" strokeWidth="0.5" strokeDasharray="3,3" strokeOpacity="0.08" />
+                    <line x1="20" y1="50" x2="260" y2="50" stroke="white" strokeWidth="0.5" strokeDasharray="3,3" strokeOpacity="0.08" />
+                    <line x1="20" y1="80" x2="260" y2="80" stroke="white" strokeWidth="0.5" strokeOpacity="0.15" />
+
+                    {/* Shaded Area Gradients */}
+                    <path d={areaPath} fill="url(#chartGradient)" />
+                    {biForecast && <path d={forecastAreaPath} fill="url(#forecastGradient)" />}
+
+                    {/* Plot Lines */}
+                    <path d={pointsPath} fill="none" stroke="#00ff99" strokeWidth="1.8" strokeLinecap="round" />
+                    {biForecast && (
+                      <path d={forecastPath} fill="none" stroke="#ffbf00" strokeWidth="1.8" strokeDasharray="3,3" strokeLinecap="round" />
+                    )}
+
+                    {/* Plot Circles */}
+                    {svgPoints.map((p, idx) => (
+                      <g key={idx}>
+                        <circle cx={p.x} cy={p.y} r="3" fill="#00ff99" />
+                        <circle cx={p.x} cy={p.y} r="5" fill="none" stroke="#00ff99" strokeWidth="1" strokeOpacity="0.4" />
+                        <text x={p.x} y={p.y - 6} fill="#00ff99" fontSize="6.5" textAnchor="middle" fontFamily="monospace" fontWeight="bold">
+                          {p.val}
+                        </text>
+                      </g>
+                    ))}
+
+                    {/* Forecast Circles */}
+                    {biForecast && forecastPoints.map((p, idx) => (
+                      <g key={idx}>
+                        <circle cx={p.x} cy={p.y} r="3" fill="#ffbf00" />
+                        <text x={p.x} y={p.y - 6} fill="#ffbf00" fontSize="6.5" textAnchor="middle" fontFamily="monospace" fontWeight="bold">
+                          {p.val}F
+                        </text>
+                      </g>
+                    ))}
+
+                    {/* Axis Labels */}
+                    {["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul*", "Aug*"].map((label, idx) => {
+                      const x = (idx * 35) + 20;
+                      // Don't draw Jul/Aug if forecast is disabled
+                      if (!biForecast && idx > 5) return null;
+                      return (
+                        <text key={idx} x={x} y="88" fill={idx > 5 ? "#ffbf00" : "#888"} fontSize="6" textAnchor="middle" fontFamily="monospace">
+                          {label}
+                        </text>
+                      );
+                    })}
+                  </svg>
+                </div>
+              </div>
+
+              {/* Underlying Active Schema SQL Output Terminal Console */}
+              <div className="bg-black/95 rounded-lg border border-white/[0.08] p-2 font-mono text-[7px] leading-tight text-emerald-400">
+                <div className="flex items-center justify-between text-[6px] text-gray-500 uppercase border-b border-white/[0.06] pb-1 mb-1">
+                  <span>🖥️ Active Analytical SQL Query Execution Console</span>
+                  <span className="text-[#00ff99]">DBMS: Active</span>
+                </div>
+                <div className="whitespace-pre overflow-x-auto text-yellow-100/80">
+                  {selectedData.sql}
+                </div>
+                <div className="mt-1 flex items-center gap-1.5 text-[6.5px] text-[#00ff99] border-t border-white/[0.04] pt-1">
+                  <span className="animate-pulse">●</span>
+                  <span>Query Executed Successfully &bull; Latency: 224ms &bull; Cache Status: MISS</span>
+                </div>
               </div>
             </div>
 
-            {/* Bottom Button */}
-            <div className="pt-2 border-t border-[#e5e1db] flex flex-col items-center shrink-0">
-              <button className="bg-[#007aff] text-white hover:bg-[#0062cc] text-[9px] font-bold py-1.5 px-6 rounded-full shadow-md w-[85%] text-center transition-colors cursor-pointer">
-                📥 Download report
-              </button>
-              <div className="flex justify-around w-full mt-2 text-[7px] text-[#8e8c89] font-medium pt-0.5 font-mono uppercase">
-                <span className="font-bold text-[#007aff]">● Report</span>
-                <span>🏠 Home</span>
-                <span>⚙️ Settings</span>
-              </div>
+            {/* Bottom Panel Status bar */}
+            <div className="flex justify-between items-center text-[7.5px] text-gray-500 border-t border-white/[0.08] pt-1.5 font-mono">
+              <span className="flex items-center gap-1">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> DB Engine: SQLCipher v1.35
+              </span>
+              <span>Stakeholder Export &bull; PDF CSV</span>
             </div>
           </div>
         );
+      }
 
       case "project-vitality":
         return (
@@ -3022,65 +3168,65 @@ const PROJECT_INSIGHTS_DATA: Record<string, {
 }> = {
   "project-ledger": {
     techStack: {
-      frontend: ["React Native (Expo)", "Tailwind Native", "Framer Motion"],
-      backend: ["Node.js microservices", "Rust core bindings", "FastCGI"],
-      database: ["SQLite with SQLCipher", "LSM Tree", "In-Memory Cache"],
-      protocols: ["E2EE AES-256-GCM", "Sub-100ms JSON RPC", "HTTPS"]
+      frontend: ["React SPA", "Vite JS", "D3.js / Recharts", "Tailwind CSS"],
+      backend: ["FastAPI (Python)", "Celery Task Queue", "Node.js REST API"],
+      database: ["PostgreSQL (OLAP)", "Snowflake Warehouse", "dbt (Data Build Tool)", "Redis"],
+      protocols: ["REST API JSON", "Secure JDBC/ODBC connections", "SSL/TLS 1.3 (E2EE)"]
     },
-    deepInsights: "Engineered absolute client-side localized asset security by mounting an isolated SQLCipher container directly within the cellular hardware secure enclave. Handled state reconciliation locally to execute high-vibrant budget reports and ledger graphs without continuous network chatter.",
+    deepInsights: "Engineered a unified corporate BI suite that aggregates multi-category transactional, retail, and consulting revenues. Designed high-performance analytical star schemas (Fact and Dimension models) and integrated custom SVG visualizer widgets enabling real-time dimension drilling on 10M+ rows with sub-500ms query times.",
     architectureDiagram: [
-      "[User Mobile Device] ──(AES-256 State Writes)──>",
-      "[Secure Hardware Enclave] ──(LSM-Tree DB Ledger)──>",
-      "[Local Sync Service] ──(Client-Side Reports)──> [UI Dashboard Rendering]"
+      "[Multi-Channel ERP & CRM Feed] ──(Apache Airflow DAGs)──>",
+      "[Snowflake OLAP Cloud Warehouse] ──(dbt Multi-Tier Analytics Models)──>",
+      "[React Custom BI Dashboard Portal] ──(Interactive Query Filters)──> [Stakeholder Viewport]"
     ],
     kpiMetrics: [
-      { label: "Execution Latency", score: 98 },
-      { label: "Data Integrity & E2EE", score: 100 },
-      { label: "Offline Resilience", score: 100 },
-      { label: "Concurrent Threads", score: 92 }
+      { label: "Query Response Speed", score: 98 },
+      { label: "Data Pipeline Integrity", score: 100 },
+      { label: "Incremental Sync Rate", score: 98 },
+      { label: "Database Normalization Index", score: 95 }
     ],
     engineeringChallenges: [
       {
-        title: "Enclave Transaction Contention",
-        description: "Frequent multi-transaction updates caused UI frame flickering and sequential write locks on the mobile device database thread.",
-        solution: "Formulated a buffer-swapping transaction ledger queue in active memory, flushing chunks asynchronously during low-CPU frames."
+        title: "Slow Cross-Division Data Aggregations",
+        description: "Querying millions of historic transactions from legacy checkout endpoints caused severe dashboard compile delays and memory overflow on front-end browser states.",
+        solution: "Designed partitioned clustered database indexes combined with automated incremental dbt DAG data refreshes inside the data warehouse, caching metrics in a high-speed Redis layer."
       },
       {
-        title: "Cross-Border Tax Logic Compiles",
-        description: "Computing international currency valuations dynamically slowed down standard JS math calculators during user lookups.",
-        solution: "Bound a pre-compiled Rust engine inside the Native core layer to execute math equations in sub-millisecond execution times."
+        title: "Disjointed Marketing Funnel Attribution",
+        description: "Clerical double-entry errors and dynamic attribution leaks caused conversion reports to severely misreport organic traffic valuations.",
+        solution: "Programmed a custom SQL multi-touch attribution resolution procedure applying click-proximity and first-touch heuristics, matching conversion logs with exact CRM records."
       }
     ]
   },
   "project-vitality": {
     techStack: {
-      frontend: ["React SPA", "Vite JS", "Web Audio API", "Tailwind CSS"],
-      backend: ["Express.js", "Go Telemetry Pipelines", "GraphQL"],
-      database: ["TimescaleDB", "Redis Cache Clusters"],
-      protocols: ["BLE (Bluetooth Low Energy)", "WebSockets", "TLS 1.3"]
+      frontend: ["React SPA", "Vite JS", "D3.js / Recharts", "Tailwind CSS"],
+      backend: ["Python (Pandas/NumPy)", "FastAPI", "Apache Spark"],
+      database: ["TimescaleDB (Time-series)", "PostgreSQL", "Redis"],
+      protocols: ["IoT Telemetry streams", "WebSockets (Real-Time)", "TLS 1.3"]
     },
-    deepInsights: "Translated continuous biometric sensor packets (steps, heartbeats) into dynamic circadian vectors. Perfected continuous foreground tracking utilizing precise mobile interval pacing and Bluetooth sync buffers to keep smartwatch battery usage down.",
+    deepInsights: "Translated wild physical ingredient usage logs and supply metrics into predictive retail stock curves. Built a custom time-series regression module in Python that analyzes customer purchase patterns, seasonal spikes, and perfume oil fermentation maturation schedules to prevent supply-chain locks.",
     architectureDiagram: [
-      "[IoT Wearable Ring/Watch] ──(Bluetooth BLE Packets)──>",
-      "[Paced Sync Worker] ──(WebSocket Uplink)──>",
-      "[TimescaleDB Telemetry Logger] ──> [Real-time Radar UI Dials]"
+      "[Artisanal Perfume Material logs] ──(Automated Python ETL Pipelines)──>",
+      "[TimescaleDB Chronos Tables] ──(Time-Series Regression & Averages)──>",
+      "[Scent Lab Prediction View] ──(Incremental Stock Alerts)──> [Inventory Control Interface]"
     ],
     kpiMetrics: [
-      { label: "Battery Conservation", score: 95 },
-      { label: "Telemetry Pacing Speed", score: 99 },
-      { label: "Heartbeat Accuracy", score: 98 },
-      { label: "Concurrent IoT Polls", score: 90 }
+      { label: "Forecast Accuracy Model", score: 96 },
+      { label: "Supply Chain Yield Ratio", score: 98 },
+      { label: "Data Cleanse Efficiency", score: 99 },
+      { label: "Pipeline Sync Latency", score: 94 }
     ],
     engineeringChallenges: [
       {
-        title: "BLE Background Disconnections",
-        description: "Mobile operating systems aggressively shut down background BLE sockets to save power, resulting in disjointed step history charts.",
-        solution: "Programmed a self-healing Bluetooth client helper with a backoff retry sequencer that caches data locally on-chip until the connection is re-established."
+        title: "Unpredictable Botanical Material Yields",
+        description: "Raw cambodian oud chips and steam-distilled damask roses varied in output density, skewing production batch planning formulas.",
+        solution: "Established a sliding-window rolling average statistical model that auto-adjusts input requirements depending on historical weather and source logs."
       },
       {
-        title: "High-Frequency Raw Data Storms",
-        description: "Continuous 1Hz heartbeat streams overwhelmed standard database instances during peak training intervals.",
-        solution: "Designed sliding-window telemetry aggregates that compress raw seconds-level signals into neat minute-level buckets before storage."
+        title: "Chaotic Inventory Capital Locks",
+        description: "Understocking led to critical retail shopping cart drop-offs, while sudden overstocking tied up significant luxury manufacturing capital.",
+        solution: "Programmed a customized safety stock threshold alarm that triggers automated alerts mapped directly to historical cohort demand matrices."
       }
     ]
   },

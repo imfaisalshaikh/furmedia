@@ -45,8 +45,8 @@ export default function CompanySection() {
             </p>
           </div>
           <div className="mt-8 pt-4 border-t border-white/[0.06] flex justify-between items-center text-xs font-mono text-brand-muted">
-            <span>TECH STACK & CODE</span>
-            <span className="text-[#00FF99]">HIGH ACCELERATION</span>
+            <span>BI & SYSTEM CODES</span>
+            <span className="text-[#00FF99]">BUSINESS INTELLIGENCE</span>
           </div>
         </div>
 
@@ -74,8 +74,8 @@ export default function CompanySection() {
             </p>
           </div>
           <div className="mt-8 pt-4 border-t border-white/[0.06] flex justify-between items-center text-xs font-mono text-brand-muted">
-            <span>FORM & FACTORY</span>
-            <span className="text-[#00FF99]">PURE CRAFTSMANSHIP</span>
+            <span>SPREADSHEETS & MATH</span>
+            <span className="text-[#00FF99]">EXCEL & PYTHON PLOTS</span>
           </div>
         </div>
       </div>
@@ -102,7 +102,7 @@ export default function CompanySection() {
             </div>
             <h4 className="text-lg font-display text-white font-medium">2. Mathematical Rigor</h4>
             <p className="text-sm text-brand-muted leading-relaxed font-sans">
-              From calculating keyword indexing intervals to tracking adaptogenic bio-availability ratios, our formulations are built on cold, empirical data models.
+              From optimizing SQL database query times on million-row tables to calculating complex DAX metrics in Power BI and writing automated clean-up routines in Python and Excel, our work is built on cold, empirical data models.
             </p>
           </div>
 
@@ -140,7 +140,7 @@ export default function CompanySection() {
             <input
               id="faq-search"
               type="text"
-              placeholder="Search molecular answers..."
+              placeholder="Search analytical answers..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full bg-white/[0.02] border border-white/[0.1] rounded-full pl-10 pr-4 py-2.5 text-xs text-white focus:outline-none focus:border-[#00FF99] transition-colors font-mono"

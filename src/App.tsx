@@ -134,10 +134,9 @@ export default function App() {
           "foundingDate": COMPANY_PROFILE.foundedYear,
           "address": {
             "@type": "PostalAddress",
-            "streetAddress": "Level 38, Marina One East Tower, 7 Straits View",
-            "addressLocality": "Singapore",
-            "postalCode": "018936",
-            "addressCountry": "SG"
+            "streetAddress": "Sovereign Data Offices",
+            "addressLocality": "Toronto & Karachi",
+            "addressCountry": "Canada & Pakistan"
           },
           "contactPoint": {
             "@type": "ContactPoint",
@@ -348,7 +347,7 @@ export default function App() {
             {/* Foot note */}
             <div className="border-t border-brand-border pt-6 text-center space-y-2">
               <span className="font-mono text-[9px] text-[#555555]">FAISAL UR REHMAN SHAIKH, DIRECTOR</span>
-              <p className="text-[10px] text-brand-muted">Singapore &bull; London &bull; Dubai</p>
+              <p className="text-[10px] text-brand-muted">Canada &bull; Pakistan</p>
             </div>
           </motion.div>
         )}
@@ -431,7 +430,7 @@ export default function App() {
                 </a>
               </li>
               <li>
-                <a href="#linkedin" className="hover:text-white flex items-center justify-between group">
+                <a href="https://www.linkedin.com/in/imfaisalshaikh/" target="_blank" rel="noopener noreferrer" className="hover:text-white flex items-center justify-between group">
                   LinkedIn <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </a>
               </li>
@@ -514,7 +513,7 @@ export default function App() {
             <div className="space-y-1">
               <span className="font-mono text-[10px] text-brand-muted uppercase block">FOUNDER / DIRECTOR</span>
               <p className="text-sm font-display text-white">{COMPANY_PROFILE.founder}</p>
-              <p className="text-xs font-mono text-brand-beige">Singapore &bull; London &bull; Dubai</p>
+              <p className="text-xs font-mono text-brand-beige">Canada &bull; Pakistan</p>
             </div>
             
             <div className="space-y-1 font-mono text-[9px] text-[#555555] leading-relaxed">

@@ -10,10 +10,10 @@ interface Message {
 }
 
 const CHIP_PROMPTS = [
-  { text: "Overview of Division 01 (Digital)", label: "Digital Services" },
-  { text: "What ranges are in Division 02?", label: "Physical Products" },
-  { text: "How to collaborate with Faisal?", label: "Book Consultation" },
-  { text: "Bespoke fragrant curations?", label: "Fragrance Inquiry" },
+  { text: "Overview of Power BI dashboards?", label: "BI & Dashboards" },
+  { text: "What SQL optimizations do you do?", label: "SQL Star Schemas" },
+  { text: "How is Python used in spreadsheet ETL?", label: "Python Data Wrangling" },
+  { text: "What automated Excel tools do you build?", label: "Excel & VBA Workbooks" },
 ];
 
 export default function OracleChatbot() {
@@ -23,7 +23,7 @@ export default function OracleChatbot() {
     {
       id: "initial",
       role: "model",
-      content: "Welcome to the FURmedia Executive Oracle. I am ready to guide you through Faisal Ur Rehman Shaikh's bespoke digital ecosystems and physical formulations. How may I direct your inquiry?",
+      content: "Welcome to the FURmedia Executive Oracle. I am ready to guide you through Faisal Ur Rehman Shaikh's high-fidelity Business Intelligence dashboards, advanced relational SQL database schemas, Python exploratory scripts, and automated Excel workbooks. How may I direct your inquiry?",
       timestamp: new Date(),
     },
   ]);
@@ -113,7 +113,7 @@ export default function OracleChatbot() {
       {
         id: "initial",
         role: "model",
-        content: "Our channel has been initialized. Welcome to the FURmedia Executive Oracle. Ask me about our digital strategies or physical luxury items.",
+        content: "Our channel has been initialized. Welcome to the FURmedia Executive Oracle. Ask me about our BI dashboards, SQL database schemas, Python scripts, or automated Excel workbooks.",
         timestamp: new Date(),
       },
     ]);

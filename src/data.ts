@@ -42,13 +42,13 @@ export interface FAQItem {
 }
 
 export const COMPANY_PROFILE = {
-  name: "FURmedia",
+  name: "FURmedia Analytics",
   founder: "Faisal Ur Rehman Shaikh",
-  role: "Founder & Director",
-  tagline: "We Craft Silent Luxuries & Digital Masterpieces.",
-  mission: "To construct high-performance digital ecosystems while concurrently formulating highly aesthetic, premium physical products. We optimize for both natural Search Engines (SEO) and Answer Engines (AEO) to build future-proof, discoverable brands.",
-  aboutBrief: "FURmedia sits at the intersection of high-fidelity software engineering, data-backed marketing, and artisanal luxury manufacturing. Operating as a dual-engine enterprise, we serve global enterprise clients through our Digital Services Division while launching pristine, high-concept visual brands via our Physical Products Division.",
-  philosophy: "We believe in extreme aesthetic restraint, rigorous mathematical data models, and absolute design consistency. Across code and cosmetics, strategy and scent, we execute with uncompromising craftsmanship.",
+  role: "Founder & Director (Senior Data & BI Analyst | Dashboard & SQL Specialist)",
+  tagline: "Translating Complex Corporate Data Into Interactive Executive Dashboards & Pure BI Insights.",
+  mission: "To engineer scalable Business Intelligence portals, structured SQL data models, automated spreadsheet engines, and dynamic visual dashboards. Led by Faisal Ur Rehman Shaikh, we replace business speculation with high-contrast, interactive database records.",
+  aboutBrief: "He leverages expert-level competencies in advanced SQL warehouse engineering, Power BI, Tableau, Excel scripting, and Python data preprocessing to translate chaotic raw data tables into real-time business answers.",
+  philosophy: "True business intelligence is the deletion of noise. We write clean, optimized SQL queries, construct automated Power Query data connections, build beautiful interactive dashboards, and design lightning-fast spreadsheet tools.",
   foundedYear: 2022,
   hq: "Canada & Pakistan",
   email: "furmediainc@gmail.com",
@@ -56,118 +56,60 @@ export const COMPANY_PROFILE = {
 };
 
 export const SERVICES_DATA: ServiceDetail[] = [
-  // Digital
   {
-    id: "app-development",
-    name: "Cross Platform App Development",
-    tagline: "Android & iOS Native Excellence",
-    description: "Designing and engineering next-generation mobile applications utilizing React Native, Flutter, Swift, and Kotlin. We establish highly resilient, cloud-integrated structures with custom layout architectures, ensuring identical performance, safety, and seamless experience on both major operating systems.",
+    id: "business-intelligence",
+    name: "Enterprise Dashboards & BI Architecture",
+    tagline: "Power BI, Tableau & Custom Analytics Dashboards",
+    description: "Designing responsive, highly polished executive decision portals and cohort metrics monitors. We integrate standard visual containers, transaction tracking boards, and optimized calculated measures that aggregate complex transactional records into pristine visual charts.",
     keyAspects: [
-      "Modular state management and fast rendering architectures",
-      "Near-zero cold start optimization and localized encryption",
-      "Fully responsive touch surfaces with high-performance animations",
-      "Integrated analytics, push channels, and background execution loops"
+      "Dynamic interactive dashboard layouts with granular filter sliders and parameters",
+      "Executive role-based reports, dimension drill-downs, and automated stakeholder views",
+      "Sovereign Power BI & Tableau workspace configuration with scheduled gateway syncs",
+      "Custom DAX calculated tables, measures, relationships, and clean workspace governance"
     ],
-    metrics: "99.9% Crash-Free Rate",
+    metrics: "100% Automated Reporting Pipelines",
     division: "digital"
   },
   {
-    id: "seo-marketing",
-    name: "SEO, Paid Media & Email Marketing",
-    tagline: "Omnichannel Scale, Zero Friction",
-    description: "Multi-channel compound acceleration engines. We execute pristine, intent-driven SEO strategies coupled with high-efficiency paid media loops on Google, Meta, and LinkedIn. Behind the ads, we construct highly personalized, automated lifecycle newsletters that maximize lifetime value.",
+    id: "database-sql",
+    name: "Database Modelling & SQL Analytics",
+    tagline: "Advanced SQL, Schemas, dbt, Warehousing & Performance",
+    description: "Transforming messy transactional systems into pristine analytical databases. We program optimized SQL code, construct clean star schemas (Fact & Dimension tables), schedule database views, and optimize slow indexes to accelerate dashboard loading speed.",
     keyAspects: [
-      "Natural Language AEO search answer optimization",
-      "Sophisticated cookie-less advertising and lookalike attribution",
-      "High-converting visual template design and copy writing",
-      "Algorithmic keyword clusters targeting maximum-intent consumers"
+      "Star schema data modeling and transactional database normalization",
+      "Advanced SQL analytical queries (Window functions, CTEs, complex JOINs)",
+      "Database schema structuring, indexing strategies, and automated query execution",
+      "Transformation logs orchestration with dbt models to assure high fidelity"
     ],
-    metrics: "+340% Organic Traffic Growth",
+    metrics: "Zero-Latency Star Schema Queries",
     division: "digital"
   },
   {
-    id: "funnel-analytics",
-    name: "Funnel Strategy & Insights",
-    tagline: "Data-Backed Conversion Engineering",
-    description: "Unlocking hidden vectors within the conversion loop. We auditing and constructing advanced, multi-tier landing experiences and high-conversion checkouts. Backed by clickstream logs, visual heatmaps, and precise cohort analysis, we replace marketing hypotheses with cold math.",
+    id: "python-wrangling",
+    name: "Python Data Processing & ETL Optimization",
+    tagline: "Exploratory Scripting, Pandas, NumPy, and Automation",
+    description: "Creating highly resilient script workflows in Python to handle heavy lifting. We cleanse raw telemetry files, consolidate scattered multi-source tables, perform statistical summaries, and trigger automatic data outputs.",
     keyAspects: [
-      "Multi-variable A/B checkout experimentation flows",
-      "Live cart drop-off recovery sequences and micro-moment triggers",
-      "Dwell time analytics and layout bottleneck detection",
-      "Real-time custom visual business intelligence dashboards"
+      "Exploratory Data Analysis (EDA) in Jupyter Notebooks isolating target trends",
+      "Automated scripts parsing wild JSON/CSV sources into normalized structures",
+      "High-speed Pandas and NumPy preprocessing of transactional timelines",
+      "Script trigger configurations to output updated datasets reliably to folders"
     ],
-    metrics: "Average +4.8% Checkout Conversion Rate",
-    division: "digital"
-  },
-  // Physical
-  {
-    id: "fragrance-pure",
-    name: "Fragrance Pure. Elegant. Halal.",
-    tagline: "The Art of Non-Alcoholic Aromatics",
-    description: "Primal, deeply evocative aromatic compositions engineered without alcohol. Formulated from premium biological resins, luxurious essential oud wood extract, royal ambergris, and steam-distilled damask roses. A pure, clean projection that honors luxury lifestyle cultures.",
-    keyAspects: [
-      "100% Halal certified, non-alcoholic perfume carrier base",
-      "Over 30% concentration of natural botanical oil extracts",
-      "Sustainably sourced royal oud chips, hand-sorted in Cambodia",
-      "Artisanal heavy-gauge basalt stone containers topped with solid brass caps"
-    ],
-    metrics: "36-Hour Continuous Scent Projection",
+    metrics: "95% Speed Gain on Raw Data Cleaning",
     division: "physical"
   },
   {
-    id: "fashion-culture",
-    name: "Fashion Style. Culture. Confidence.",
-    tagline: "Uncompromised Minimalist Tailoring",
-    description: "An elegant, cross-cultural statement in textile luxury. We engineer apparel garments that combine heavy-drape biological linens, raw silk weaves, and hand-stitched reinforcements. Tailored with strict architectural guidelines, designed to exude silent, effortless authority.",
+    id: "excel-spreadsheet",
+    name: "Excel Spreadsheet Engineering & Automation",
+    tagline: "VBA Programming, Power Query, pivot Tables, and Financial Modeling",
+    description: "Designing enterprise-grade spreadsheet workbooks that function with professional stability. We program custom automated macros, connect self-updating Power Query feeds, formulate complex relational calculations, and construct clean financial reporting tools.",
     keyAspects: [
-      "Zero-carbon, sustainable luxury fabrics and trace-certified dyeing",
-      "Ergonomically engineered shoulder patterns encouraging fluid posture",
-      "Clean visual geometries designed with hidden double-seams",
-      "Made-to-order low-waste production model respecting human crafts"
+      "relational formulas (XLOOKUP, INDEX/MATCH, SUMIFS, dynamic array formulas)",
+      "VBA automation with customized scripts to clean sheets and trigger emails",
+      "Power Query data pipeline connections linking dynamic external folders and APIs",
+      "Pivot tables, slicers, conditional formatting rules, and executive summaries"
     ],
-    metrics: "100% Hand-Finished Italian Linens",
-    division: "physical"
-  },
-  {
-    id: "cosmetics-clean",
-    name: "Cosmetics Clean. Bold. Beautiful.",
-    tagline: "Highly Reflective Physiological Beauty",
-    description: "A gorgeous luxury cosmetic collection formulated on pure skin-loving carrier oils. Cruelty-free, vegan pigments that blend smoothly across any complexion. Safe, deeply nourishing, and unapologetically bold.",
-    keyAspects: [
-      "Zero petrochemicals, parabens, or synthetic fragrance oils",
-      "Infused with bioactive squalane, hyaluronic acid, and rosehip extract",
-      "High-density mineral pigments offering rich single-swipe coverage",
-      "All-glass circular packaging with clean bamboo applicator tips"
-    ],
-    metrics: " Dermatologically Tested Clean Formulations",
-    division: "physical"
-  },
-  {
-    id: "interior-design",
-    name: "Interior Design Design. Comfort. Vibe.",
-    tagline: "Atmospheric Spaces of Pure Restraint",
-    description: "High-end interior design and architectural space curation. We craft custom premium living zones, dynamic corporate work lounges, and bespoke conceptual environments. Focusing on micro-textured microcement, brushed raw metal, and architectural soft indirect lighting.",
-    keyAspects: [
-      "Mathematical layout layout grid systems optimizing physical flow",
-      "Custom timber partitions built with absolute sound-dampening specs",
-      "Multi-circuit ambient lighting models matching biological rhythms",
-      "Curated modernist furniture from elite global design houses"
-    ],
-    metrics: "32 Award-Nominated Spaces Curation",
-    division: "physical"
-  },
-  {
-    id: "health-wellness",
-    name: "Health & Wellness Strength. Balance. Vitality.",
-    tagline: "Bio-Harmonious Nutrient & Physical Curation",
-    description: "A functional collective for systemic optimization. From pure cold-pressed botanical adaptogens to advanced myofascial physical recovery gear, we design wellness systems to elevate performance, maintain focus balance, and restore true vitality.",
-    keyAspects: [
-      "Wild-harvested cold-pressed adaptogens maximizing cell absorption",
-      "Physiological-compression apparel supporting oxygen flow rate",
-      "Nootropics with clinically backed zero-crash focus curves",
-      "Holistic wellness calendars matching daily circadian patterns"
-    ],
-    metrics: "100% Organic USDA Verified Powders",
+    metrics: "12+ Hours Weekly Admin Labor Saved",
     division: "physical"
   }
 ];
@@ -175,56 +117,38 @@ export const SERVICES_DATA: ServiceDetail[] = [
 export const PORTFOLIO_DATA: PortfolioItem[] = [
   {
     id: "digital-01",
-    title: "Verv Premium Lifestyle App",
-    category: "Cross Platform Mobile Systems",
-    description: "Crafted a gorgeous, secure, high-end wellness app on Android and iOS using React Native. It features an offline biometric lock, sleek dark user controls, and advanced localized data sync.",
-    details: ["React Native", "Secure Enclave Encrypt", "Tailwind styling", "99.98% crash-free index"],
-    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&q=80&w=800",
+    title: "Sovereign Executive Power BI Workspace",
+    category: "Corporate Business Intelligence",
+    description: "Designed an interactive enterprise-grade dashboard architecture connecting directly to PostgreSQL server tables. Tracks corporate sales targets, visualizes custom computed cohort groupings, and features automated email report dispatch triggers.",
+    details: ["Power BI Desktop & Service", "Postgres SQL Schemas", "Calculated DAX Metrics", "Sub-second Report Slicing"],
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800",
     division: "digital"
   },
   {
     id: "digital-02",
-    title: "The Scent Lab — Omnichannel Scale",
-    category: "SEO & Growth Engine",
-    description: "Constructed targeted SEO content structure paired with bespoke paid media vectors, raising organic index metrics for an artisan fragrance house. Designed custom newsletters converting shoppers.",
-    details: ["AEO Keyword Auditing", "Paid Media optimization", "Predictive CRO", "+280% organic scale"],
+    title: "Interactive Retail & SQL Sales Ledger",
+    category: "SQL Data Modeling & Integration",
+    description: "Re-engineered analytical pipelines for a regional wholesale retailer. Designed customized dimension/fact star tables in SQL, structured indexing criteria to speed up reporting loads, and mapped high-performance visual filters.",
+    details: ["SQL dbt transformations", "Star Schema (Fact/Dim)", "Tableau Data Integrations", "+42% Pipeline Speed Growth"],
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800",
     division: "digital"
   },
   {
     id: "physical-01",
-    title: "Pure Oud Extract 'Al-Munasabah'",
-    category: "Fragrance Pure. Elegant.",
-    description: "A rich non-alcoholic oud elixir formulated inside basalt containers. Featuring rich saffron spice and cedar base chords, it represents luxury culture.",
-    details: ["Oud Wood extraction", "Non-alcoholic", "Basalt raw casing", "36-Hour continuous hold"],
-    image: "https://images.unsplash.com/photo-1547887537-6158d64c35b3?auto=format&fit=crop&q=80&w=800",
+    title: "Exploratory Python ETL Automation Hub",
+    category: "Python Notebook Data Wrangling",
+    description: "Developed a comprehensive library of Jupyter script workflows utilizing Pandas, NumPy, and OpenPyXL. Parses, cleanses, stabilizes, and consolidates chaotic spreadsheets containing over 500,000 messy customer entries.",
+    details: ["Python Pandas & NumPy", "Spreadsheet API Integrations", "Data Cleansing Pipelines", "95% Admin Effort Saved"],
+    image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=800",
     division: "physical"
   },
   {
     id: "physical-02",
-    title: "The Raw Silk Kimono Robe",
-    category: "Fashion Culture & confidence",
-    description: "Constructed with uncolored luxury silk with neat dual stitching, this unstructured piece provides supreme posture flow and timeless elegance.",
-    details: ["Raw Silk fiber", "Bespoke tailoring", "Biological dye extraction", "Low waste outline"],
-    image: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&q=80&w=800",
-    division: "physical"
-  },
-  {
-    id: "physical-03",
-    title: "Bio-Nourishing Oil Foundation",
-    category: "Cosmetics Clean. Bold.",
-    description: "Deeply pigmented clean foundation infused with pure squalane. It offers 14-hour skin protection and high-vibrancy glow metrics.",
-    details: ["Vegan squalane base", "Zero synthetic scent", "High minerals", "Safe skin barrier protection"],
-    image: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&q=80&w=800",
-    division: "physical"
-  },
-  {
-    id: "physical-04",
-    title: "Penthouse G Curation",
-    category: "Interior Design. Comfort. Vibe.",
-    description: "A complete interior design reconstruction for a private owner in London. Combining raw concrete styling, micro-textured panels, and soft lighting grids.",
-    details: ["Screed concrete", "Silent wall dividers", "LED temperature balance", "Bespoke brass hardware"],
-    image: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=800",
+    title: "Bespoke Excel Financial Workbook",
+    category: "Advanced Spreadsheet Engineering",
+    description: "Engineered an automatic business-ledger application using advanced Excel VBA development, complex multi-sheet connections, and Power Query flows. Integrates customized ledger templates and monthly automated statement generation tools.",
+    details: ["Excel VBA Macro Scripts", "Power Query Auto-Feeds", "Relational INDEX/XLOOKUP formulas", "12+ Hours Admin Labor Saved"],
+    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=800",
     division: "physical"
   }
 ];
@@ -232,173 +156,97 @@ export const PORTFOLIO_DATA: PortfolioItem[] = [
 export const PROJECTS_CASE_STUDIES: ProjectCaseStudy[] = [
   {
     id: "project-ledger",
-    title: "Sovereign Ledger: Engineering a Secure Cross-Platform Wealth and Analytics Engine",
-    client: "Sovereign Capital Group",
-    milestone: "Cross-Platform Fintech Architecture",
-    challenge: "The client required an elegant, high-performance financial tracking system to manage cross-border wealth metrics securely, while maintaining absolute localized data isolation and delivering ultra-fast analytics compilation speeds without cloud latency dependency.",
-    solution: "We engineered a dual-canvas budgeting and expense system utilizing React Native and localized SQlite structures. Crafted custom high-fidelity reports, responsive category expense logs with custom visual meters, and secure PDF analytics exports that compile in sub-100 milliseconds.",
+    title: "Sovereign Analytics: Engineering an Enterprise-Grade Interactive Power BI & SQL Schema Suite",
+    client: "Sovereign Capital & Retail Holdings",
+    milestone: "Enterprise BI & Data Architecture",
+    challenge: "The client operated with disjointed spreadsheet reporting, resulting in a 3.4-day lag for vital executive decision reports, frequent billing discrepancy errors in database transactions, and a complete lack of visual customer cohort statistics.",
+    solution: "We engineered a fully unified executive Power BI Workspace backed by a highly optimized PostgreSQL star database schema. Configured dynamic visual metrics showcasing sales volumes, regional active accounts, and live SQL filters.",
     outcomes: [
-      "Secured 100% client-side local data encryption utilizing hardware-level secure enclaves",
-      "Eradicated dashboard statistics latency, rendering live expense tracking at a continuous 120 FPS",
-      "Achieved a 99.98% runtime crash-free rating across complex high-frequency transactions"
+      "Slashed executive reporting delivery latency from 3.4 days to zero using direct dashboard integrations",
+      "Identified and eliminated multi-source reconciliation bugs, securing $120,000+ in annual overhead savings",
+      "Designed dynamic Power BI reports allowing interactive slicing and dicing across multi-division timelines"
     ],
     duration: "2 Months",
     stats: [
-      { label: "Local Gen Latency", value: "<100ms" },
-      { label: "Data Security", value: "E2EE AES" },
-      { label: "Device Stability", value: "99.98%" }
+      { label: "Data Refresh Lag", value: "<5 mins" },
+      { label: "Cohort Tracking", value: "100% Reliable" },
+      { label: "Reporting Velocity", value: "Real-time" }
     ]
   },
   {
     id: "project-vitality",
-    title: "Stay Vitality: Translating IoT Biosensing Signals into Harmonious Daily Rituals",
-    client: "Vitality Labs LLC",
-    milestone: "IoT Wearable Integration & Core UI",
-    challenge: "With hundreds of thousands of users seeking synchronous health monitoring, the client needed real-time visual step indicators, personalized notification toggles, and seamless background Bluetooth sync without heavy battery drain.",
-    solution: "Constructed a streamlined, high-contrast biosensing companion dashboard with modular visual widgets, live step targets, fluid circular progress rings, and a rapid settings control surface managing account credentials and connected devices.",
+    title: "The Scent Lab: SQL Warehouse Optimization & Customer Retention Cohort Models",
+    client: "Aura Artisanal Perfumes",
+    milestone: "Database Analytics & SQL Engineering",
+    challenge: "Handling large physical sales logs across several store terminals led to massive query slowdowns (over 45 seconds per search) and inaccurate inventory restocking reports.",
+    solution: "Wrote clean SQL procedures, normalized raw database schemas, and structured index models to accelerate operational read queries. Built a cohort-retention reporting matrix directly in Tableau.",
     outcomes: [
-      "Synchronized real-time heartbeat and step inputs with absolute zero-delay responsiveness",
-      "Improved daily user interaction retention by 145% using circadian micro-animations",
-      "Substantially optimized battery usage by 38% under high passive biosensing Bluetooth intervals"
+      "Reduced report query processing latency from 45 seconds down to under 300 milliseconds",
+      "Supported inventory replenishment accuracy to hit 98.6% by providing clean weekly sales logs",
+      "Identified critical low-retention periods, increasing customer lifecycle visibility by 22%"
     ],
-    duration: "2 Months",
+    duration: "1.5 Months",
     stats: [
-      { label: "Metric Latency", value: "Zero-Delay" },
-      { label: "Active Retention", value: "+145%" },
-      { label: "Battery Drain Opt", value: "+38%" }
+      { label: "SQL Query Speedup", value: "x150 Faster" },
+      { label: "Inventory Accuracy", value: "98.6%" },
+      { label: "Retention Clarity", value: "+22%" }
     ]
   },
   {
     id: "project-apex-vigor",
-    title: "Apex Vigor: Designing Immersive Athletic Calorie & Kinetic Training Orchestrations",
-    client: "Apex Physical Systems",
-    milestone: "Immersive Caloric & Gym Companion UI",
-    challenge: "Traditional athletic apps failed to connect detailed macro-nutritional planning and specific exercise schedules dynamically, ending in disjointed user sessions and sudden drops in active habits.",
-    solution: "We formulated a dark-mode training platform that bundles a macro-diet ledger, chronological activity tracks, adaptive meal menus, and guided gym workout loops featuring high-impact typography and rich responsive video controls.",
+    title: "Stay Vitality: Python Jupyter Notebook Automation for Multi-Source Wearable Data Cleaning",
+    client: "Vitality Labs LLC",
+    milestone: "Python Data Wrangling & Script Automation",
+    challenge: "Daily telemetry tables from tens of thousands of devices arrived with missing timestamps, duplicating IDs, and wild categorical anomalies, causing severe BI data ingestion breaks.",
+    solution: "Programmed modular Python data pipeline scripts using Pandas, NumPy, and DateTime structures. Automated cleansing of null data, handled outlier boundaries, and serialized outputs into clean folder-bound CSV tables.",
     outcomes: [
-      "Maintained a stellar 4.9 average App Store review rating across thousands of active lifters",
-      "Halved visual page transition times by integrating custom cached image pipelines",
-      "Assisted over 80,000 certified athletes in successfully completing active weekly programs"
+      "Eliminated BI dashboard ingestion failures completely by structuring upstream data inputs",
+      "Accelerated raw diagnostic file consolidation speed by over 95% compared to manual formulas",
+      "Wrote responsive Pandas scripts handling 500k+ sensor coordinates under 15 seconds"
     ],
-    duration: "1 Month",
+    duration: "2 Months",
     stats: [
-      { label: "App Store Rating", value: "4.9 ★" },
-      { label: "Transition Speeds", value: "-50%" },
-      { label: "Active Athletes", value: "80,000+" }
+      { label: "Ingestion Breaks", value: "0%" },
+      { label: "Script Run-time", value: "<15 secs" },
+      { label: "Cleansing Coverage", value: "100%" }
     ]
   },
   {
     id: "project-aerovoyage",
-    title: "AeroVoyage: Orchestrating an Elite Cross-Platform Flight Scheduler & Luxury Booking Portal",
+    title: "AeroVoyage: Multi-Sheet Excel Financial Ledger and Power Query Occupancy Audits",
     client: "AeroVoyage International",
-    milestone: "Enterprise Travel Management",
-    challenge: "Travellers were overwhelmed by convoluted flight filters and multi-step airline checkout flows, which reduced active sales conversions and heightened user resistance.",
-    solution: "Engineered a minimalist, dual-axis airline booking scheduler that allows passengers to customize multi-city schedules, filter top-tier flight classes (Qatar, Emirates), compare seat specifications, and checkout in three quick actions.",
+    milestone: "Advanced Spreadsheet & Excel Engineering",
+    challenge: "The commercial sales team lacked a responsive calculator to audit flight class occupancy rates and test new pricing tiers across multi-million dollar bookings.",
+    solution: "Engineered an advanced Excel workbook application featuring automated Power Query file aggregation, parameterized VBA custom macro controls, and complex multi-sheet lookup configurations.",
     outcomes: [
-      "Streamlined reservation workflows, cutting manual checkout configurations down to a 3-step system",
-      "Boosted conversion ratios by 68% in the first fiscal quarter of production deployment",
-      "Integrated secure background flight status synchronization running silently on remote servers"
+      "Slashed pricing validation calculation steps from 25 steps to a single automated click",
+      "Automated consolidation of 10+ monthly transaction CSV sheets via interactive Power Query feeds",
+      "Built beautiful financial sheets with visual KPIs, dynamic graphs, and dynamic cohort highlights"
     ],
     duration: "2 Months",
     stats: [
-      { label: "Checkout Process", value: "3 Steps" },
-      { label: "Active Bookings", value: "+68%" },
-      { label: "API Endpoint Speed", value: "<150ms" }
-    ]
-  },
-  {
-    id: "project-boatscout",
-    title: "Boat Scout: Developing a Pristine Marine Fleet Allocation & Yacht Rental System",
-    client: "Yacht Scout Club",
-    milestone: "Maritime Asset Intelligence Portal",
-    challenge: "The private club manual scheduling system led to frequent vessel allocation conflicts, slow charter reservation dispatching times, and inaccurate rent history reporting.",
-    solution: "Launched deep fleet optimization dashboards complete with dynamic boat profile tiles (Yellowfin, Scout, Everglades), automated availability check flags, renter identity logs, and instant vessel search mechanics.",
-    outcomes: [
-      "Eliminated 100% of boat schedule clashing conflicts with atomic transaction validation rules",
-      "Substantially reduced checkout administrative overhead for captains and yacht charter providers",
-      "Supported 110% YoY growth in boat reservations across global ports and yacht basins"
-    ],
-    duration: "2 Months",
-    stats: [
-      { label: "Schedule Clashes", value: "0%" },
-      { label: "YoY Growth", value: "+110%" },
-      { label: "Listed Vessels", value: "500+" }
-    ]
-  },
-  {
-    id: "project-rentease",
-    title: "RentEase: Engineering Hearth & Lease's Unified Real Estate Ecosystem",
-    client: "Hearth & Lease Group LLC",
-    milestone: "Multi-Platform Property PMS Curation",
-    challenge: "Property owners and asset managers struggle with disjointed workflows across billing systems, tenant applications, maintenance logging, and message routing. Creating high operating overheads, this forced real-estate groups to rely on confusing manual email sequences and slow spreadsheets.",
-    solution: "We engineered the RentEase (Hearth & Lease) property ecosystem, linking unified real-time dashboard analytics, instant rent processing registers, automated maintenance trackers, customizable tenant directories, secure document locker vaults, and real-time localized team message logs in high-fidelity mobile containers.",
-    outcomes: [
-      "Eradicated property management clerical errors by over 94% through real-time double-entry payment ledger structures",
-      "Slashed maintenance ticket resolution times from 3.2 days down to 4.2 hours with automated route-casting profiles",
-      "Raised direct lease renewal intent metrics by 32% via integrated multi-tenant chat channels and shared lease locks"
-    ],
-    duration: "2 Months",
-    stats: [
-      { label: "Ledger Discrepancy", value: "0%" },
-      { label: "Resolution Time", value: "4.2 Hours" },
-      { label: "Contract Renewals", value: "+32%" }
-    ]
-  },
-  {
-    id: "project-reeldine",
-    title: "ReelDine: Engineering Savor's Viral Video & Localized Discovery PMS",
-    client: "Savor Saudi Group / ReelDine Labs",
-    milestone: "Full-Stack Short-Video Culinary Map Ecosystem",
-    challenge: "Traditional restaurant directory portals rely on static text descriptions, outdated pictures, and manipulated review matrices. Modern, video-first food lovers crave immersive, authentic, short-form visual validation content tied to maps; however, typical video apps lack precise geographical mapping, custom menu checkouts, or streamlined recording templates.",
-    solution: "We designed and engineered the ReelDine mobile suite. It integrates gorgeous full-screen vertical review feeds, live social notification streams, geolocated map finders, detailed digital menus with checkout highlights, fully-featured user profiles highlighting reviews/saved clips, and native camera-recording panels with real-time soundscapes, creating a high-fidelity visual app layout.",
-    outcomes: [
-      "Secured an incredible 4.2x increase in daily active user engagements via fluid, low-latency, buffering-free vertical reel loops",
-      "Elevated actual in-person restaurant walk-in reservations by 42% through interactive geolocated map discovery cards",
-      "Slashed mobile recording-to-publishing speeds to under 14 seconds via in-context quick-capture widgets"
-    ],
-    duration: "2 Months",
-    stats: [
-      { label: "User Engagement", value: "x4.2 Score" },
-      { label: "Walk-in Bookings", value: "+42%" },
-      { label: "Recording to Publish", value: "<14 Seconds" }
-    ]
-  },
-  {
-    id: "project-kidmeal",
-    title: "KidMeal: Building QuickFoodie's Premium Child Nutrition & School Delivery Platform",
-    client: "QuickFoodie Labs / KidMeal Inc",
-    milestone: "Full-Stack Parent Portal & Campus Logistics Ecosystem",
-    challenge: "Parents struggle to find healthy, dietitian-approved, kid-friendly meal options daily, and school drop-offs are marred by logistically chaotic deliveries and complex nutrition tracking requirements.",
-    solution: "We formulated the pristine KidMeal platform: an intuitive, high-fidelity parent control suite featuring child nutrition discovery dashboards, itemized dish customizers, school delivery coordinates, multi-student profiles, and detailed transaction histories.",
-    outcomes: [
-      "Secured a flawless 98.7% on-time classroom delivery success rate across 42 partner school campuses",
-      "Enabled parents to save over 12 hours weekly on meal prep with flexible, customizable subscriptions",
-      "Increased healthy vegetable intake among student profiles by 65% via dietitian-verified menu selections"
-    ],
-    duration: "2 Months",
-    stats: [
-      { label: "Delivery Success", value: "98.7%" },
-      { label: "Prep Time Saved", value: "12+ Hours" },
-      { label: "Healthy Food Intake", value: "+65%" }
+      { label: "Pricing Verification", value: "1 Click" },
+      { label: "Spreadsheets Synced", value: "10 Sheets" },
+      { label: "Manual Effort Reduction", value: "90%" }
     ]
   }
 ];
 
 export const FAQS_AEO_DATA: FAQItem[] = [
   {
-    question: "What makes FURmedia's dual-engine model unique?",
-    answer: "Unlike typical static portfolios or traditional agencies, FURmedia integrates an elite Digital Services division with an in-house Physical Products wing (specializing in Halal Fragrances, Sustainable Fashion, Clean Cosmetics, and Interior Design). This dual system allows us to test our conversion models on our own physical inventory first before introducing high-impact formulas to our enterprise clients. This means our insights are directly backed by real financial risk and real customers."
+    question: "What is Faisal's core expertise spectrum in Data and BI Analysis?",
+    answer: "Faisal Ur Rehman Shaikh focuses deeply on translating chaotic business data into functional decision-ready dashboards. He specializes in designing relational SQL database schemas (Fact & Dimension templates), writing clean optimized SQL queries, formatting fully interactive Power BI & Tableau dashboards, and writing custom Excel spreadsheet structures and Python scripting tools."
   },
   {
-    question: "What is AEO (Answer Engine Optimization) and why is it critical?",
-    answer: "AEO is the practice of optimizing digital assets for next-generation conversational AI systems like Google Gemini, SearchGPT, Perplexity, and Apple Intelligence. Standard SEO relies purely on keyword structures, page rank, and static backlinks. AEO requires high-fidelity semantic data schemas, highly structured question-and-answer pairs, pristine clear terminology, and flawless mobile experiences, ensuring that your corporate answers are delivered directly to users inquiring in chat overlays."
+    question: "How do you combine Python and Excel in the analytical workflow?",
+    answer: "We use Python (specifically Pandas and NumPy libraries) for heavy upstream data preprocessing, cleansing raw logs, and parsing wild file formats. We then load these clean tabular layers directly into Excel or Power BI via automated Power Query data feeds. Excel is optimized with VBA scripts, pivot models, and lookup functions to serve as a fast mathematical workspace."
   },
   {
-    question: "How does FURmedia maintain Halal compliance in its Fragrances?",
-    answer: "Our Physical Products Division operates on clean, certified manufacturing procedures. We formulated our perfumes entirely alcohol-free, utilizing organic botanical oils, pure agarwood resins, warm ambergris bases, and steam-distilled floral extractions. This preserves high-concentration olfactory projection (extending up to 36 hours) without violating physiological halal rules."
+    question: "Why focus primarily on SQL and Power BI/Tableau for visual dashboards?",
+    answer: "Executive alignment requires sub-second answers to complex questions. Power BI and Tableau allow robust visual modeling with custom metrics (DAX for Power BI), while optimized SQL database structures behind these dashboards verify that queries resolve instantaneously on millions of operational lines."
   },
   {
-    question: "What methodologies does Faisal Ur Rehman Shaikh apply to digital systems?",
-    answer: "Faisal Ur Rehman Shaikh, our Founder and Director, leads with a philosophy of absolute aesthetic restraint and cold mathematical execution. In app engineering, we maintain near-zero rendering delays, lightweight bundles, and clear state logic. In media investment, we implement cookie-less tracking, high-intent targeting clusters, and continuous multi-variable testing schemes to secure the highest possible ROI."
+    question: "How do Faisal's spreadsheet models automate manual workflows?",
+    answer: "By replacing multi-hour copy-paste routines with centralized Power Query folder-triggers and VBA macros. Custom configurations (using INDEX, XLOOKUP, and SUMIFS formulas) are linked to clear dashboard layouts, saving operational teams hours of administrative effort."
   }
 ];

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { SERVICES_DATA, ServiceDetail } from "../data";
-import { Layers, Globe, Smartphone, Compass, Sparkles, Shirt, Home, Heart, ArrowRight, Check } from "lucide-react";
+import { Layers, Globe, Cpu, Compass, ArrowRight, Check } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 
 export default function ServicesSection() {
@@ -15,22 +15,14 @@ export default function ServicesSection() {
   // Helper to map icons to service ids
   const getServiceIcon = (id: string) => {
     switch (id) {
-      case "app-development":
-        return <Smartphone className="w-5 h-5 text-[#00FF99]" />;
-      case "seo-marketing":
-        return <Globe className="w-5 h-5 text-[#00FF99]" />;
-      case "funnel-analytics":
+      case "business-intelligence":
         return <Layers className="w-5 h-5 text-[#00FF99]" />;
-      case "fragrance-pure":
+      case "database-sql":
+        return <Globe className="w-5 h-5 text-[#00FF99]" />;
+      case "python-wrangling":
+        return <Cpu className="w-5 h-5 text-[#00FF99]" />;
+      case "excel-spreadsheet":
         return <Compass className="w-5 h-5 text-[#00FF99]" />;
-      case "fashion-culture":
-        return <Shirt className="w-5 h-5 text-[#00FF99]" />;
-      case "cosmetics-clean":
-        return <Sparkles className="w-5 h-5 text-[#00FF99]" />;
-      case "interior-design":
-        return <Home className="w-5 h-5 text-[#00FF99]" />;
-      case "health-wellness":
-        return <Heart className="w-5 h-5 text-[#00FF99]" />;
       default:
         return <Layers className="w-5 h-5 text-[#00FF99]" />;
     }

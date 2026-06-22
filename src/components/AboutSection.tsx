@@ -2,6 +2,7 @@ import { motion } from "motion/react";
 import { COMPANY_PROFILE } from "../data";
 import { Calendar, MapPin, Award, ArrowUpRight } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
+import LinkedInHub from "./LinkedInHub";
 
 interface AboutSectionProps {
   onNavigate: (page: string) => void;
@@ -51,7 +52,7 @@ export default function AboutSection({ onNavigate }: AboutSectionProps) {
               {t("about_under_directorship")}
             </p>
             <p>
-              By fusing advanced search intelligence, highly-performant state architectures, and halal, toxin-free physical formulation, we capture user interest across both natural queries and AI recommendation chains. Discover how our dual divisions create a continuous return cycle.
+              By fusing advanced visual dashboards, highly normalized database schemas, exploratory Python data cleansing scripts, and automated advanced Excel workbooks, we structure analytical pipelines that provide direct, bulletproof operational clarity. We transform multi-million row records into clean, actionable executive portals.
             </p>
           </div>
 
@@ -75,38 +76,21 @@ export default function AboutSection({ onNavigate }: AboutSectionProps) {
           </div>
         </div>
 
-        {/* Director Panel Info */}
-        <div className="lg:col-span-4 space-y-8">
-          <div className="bg-[#0e0e0e] border border-brand-border rounded-2xl p-6 relative overflow-hidden group">
-            {/* Soft decorative background grid */}
-            <div className="absolute inset-0 grid-bg opacity-20 pointer-events-none"></div>
-            
-            <div className="relative z-10 space-y-6">
-              <div className="w-12 h-12 rounded-full border border-brand-border bg-black/50 flex items-center justify-center font-serif text-lg italic text-[#00FF99]">
-                F
-              </div>
-              <div>
-                <span className="font-mono text-xs text-brand-muted block uppercase">{t("leadership")}</span>
-                <h3 className="text-lg font-display font-medium text-white">{COMPANY_PROFILE.founder}</h3>
-                <p className="text-xs font-mono text-brand-beige">{COMPANY_PROFILE.role}</p>
-              </div>
-              <p className="text-xs text-brand-muted leading-relaxed font-sans mt-4 italic border-l-2 border-[#00FF99] pl-3">
-                {t("about_sophistication")}
-              </p>
-            </div>
-          </div>
+        {/* Director Panel Info & Premium LinkedIn Interactive Credentials Hub */}
+        <div className="lg:col-span-4 space-y-6">
+          <LinkedInHub />
 
           {/* Quick Metrics Cards */}
           <div className="grid grid-cols-2 gap-4">
             <div className="border border-brand-border rounded-xl p-4 space-y-2">
-              <Calendar className="w-4 h-4 text-brand-beige" />
+              <Calendar className="w-4 h-4 text-[#00FF99]" />
               <span className="font-mono text-[10px] text-brand-muted uppercase block">ESTABLISHED</span>
               <span className="text-lg font-display font-medium text-white">{COMPANY_PROFILE.foundedYear}</span>
             </div>
             <div className="border border-brand-border rounded-xl p-4 space-y-2">
-              <Award className="w-4 h-4 text-brand-beige" />
-              <span className="font-mono text-[10px] text-brand-muted uppercase block">DIVISIONS</span>
-              <span className="text-lg font-display font-medium text-white">02 Dual Engine</span>
+              <Award className="w-4 h-4 text-[#ffbf00]" />
+              <span className="font-mono text-[10px] text-brand-muted uppercase block">CORE PILLARS</span>
+              <span className="text-lg font-display font-medium text-white">04 Pillars</span>
             </div>
           </div>
         </div>
