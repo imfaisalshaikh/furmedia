@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "resolveJsonModule": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
     "target": "ES2022",
     "experimentalDecorators": true,
     "useDefineForClassFields": false,
