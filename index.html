@@ -1,20 +1,91 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FURmedia — Premium Digital Agency & Physical Products</title>
-    <!-- Preconnect to Google Fonts -->
+    <title>FURmedia | Full-Stack Product Engineering & Data Intelligence</title>
+    
+    <!-- SEO & Metadata -->
+    <meta name="description" content="FURmedia is a premier Product Engineering agency. We bridge the gap between Data Intelligence (Excel, SQL, PowerBI) and Scalable App Development (Flutter, Supabase, Stripe)." />
+    
+    <!-- Tailwind for rapid, professional styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: { extend: { colors: { brand: '#f4f4f4', bg: '#080808' } } }
+        }
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <!-- Google Fonts: Space Grotesk (Display), Cormorant Garamond (Serif, Italic), Playfair Display (Huge italic displays), Inter (UI Body), JetBrains Mono (Mono) -->
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@100;300;400;500&display=swap" rel="stylesheet" />
-    <!-- AEO SEO Meta Description -->
-    <meta name="description" content="FURmedia is a premier dual-engine startup of founder Faisal Ur Rehman Shaikh, operating high-end digital services and physical product divisions across tech, fragrance, fashion, and design." />
-  </head>
-  <body class="bg-[#080808] text-[#f4f4f4] antialiased overflow-x-hidden select-none">
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
-</html>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet" />
+</head>
 
+<body class="bg-[#080808] text-[#f4f4f4] font-['Inter'] antialiased">
+
+    <!-- Header -->
+    <header class="p-8 flex justify-between items-center max-w-6xl mx-auto">
+        <h1 class="text-2xl font-['Space_Grotesk'] font-bold tracking-tighter">FURmedia</h1>
+        <nav class="space-x-8 text-sm uppercase tracking-widest text-gray-400">
+            <a href="#data" class="hover:text-white transition">Data Intelligence</a>
+            <a href="#engineering" class="hover:text-white transition">Product Engineering</a>
+        </nav>
+    </header>
+
+    <main id="root" class="max-w-6xl mx-auto px-8 py-16">
+        
+        <!-- Hero Section -->
+        <section class="mb-24">
+            <h2 class="text-6xl font-['Space_Grotesk'] font-bold mb-6">We Engineer Revenue-Generating Products.</h2>
+            <p class="text-xl text-gray-400 max-w-2xl">From raw data intelligence to full-stack application development, we are your dual-engine partner for digital infrastructure.</p>
+        </section>
+
+        <!-- Data Intelligence Category -->
+        <section id="data" class="mb-24">
+            <h3 class="text-3xl font-bold mb-10 border-l-2 border-white pl-4">Data Intelligence Engine</h3>
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Project 1 -->
+                <div class="p-8 border border-white/10 rounded-xl bg-white/5 hover:border-white/30 transition">
+                    <span class="text-xs text-blue-400 uppercase tracking-widest font-bold">SQL & Python</span>
+                    <h4 class="text-xl font-bold mt-2">Automated Data Pipeline</h4>
+                    <p class="text-gray-400 mt-2">Engineered a custom SQL/Python ingestion layer to automate complex reporting previously stuck in manual spreadsheets.</p>
+                </div>
+                <!-- Project 2 -->
+                <div class="p-8 border border-white/10 rounded-xl bg-white/5 hover:border-white/30 transition">
+                    <span class="text-xs text-green-400 uppercase tracking-widest font-bold">PowerBI & Excel</span>
+                    <h4 class="text-xl font-bold mt-2">C-Suite Executive Dashboard</h4>
+                    <p class="text-gray-400 mt-2">Developed a high-fidelity PowerBI dashboard that integrates Excel financial models into real-time visual business intelligence.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Engineering Category -->
+        <section id="engineering" class="mb-24">
+            <h3 class="text-3xl font-bold mb-10 border-l-2 border-white pl-4">Product Engineering Engine</h3>
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Project 1 -->
+                <div class="p-8 border border-white/10 rounded-xl bg-white/5 hover:border-white/30 transition">
+                    <span class="text-xs text-purple-400 uppercase tracking-widest font-bold">Flutter & Supabase</span>
+                    <h4 class="text-xl font-bold mt-2">SaaS Mobile Platform</h4>
+                    <p class="text-gray-400 mt-2">Built a cross-platform Flutter application backed by Supabase, featuring real-time data sync and complex user auth.</p>
+                </div>
+                <!-- Project 2 -->
+                <div class="p-8 border border-white/10 rounded-xl bg-white/5 hover:border-white/30 transition">
+                    <span class="text-xs text-pink-400 uppercase tracking-widest font-bold">Stripe & RevenueCat</span>
+                    <h4 class="text-xl font-bold mt-2">Monetized FinTech App</h4>
+                    <p class="text-gray-400 mt-2">Integrated global payment infrastructure using Stripe and RevenueCat to handle in-app purchases and subscription management.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-12 text-center text-gray-500 text-sm">
+        &copy; 2026 FURmedia. All rights reserved. Built for scale.
+    </footer>
+
+    <!-- App entry point -->
+    <script type="module" src="/src/main.tsx"></script>
+</body>
+</html>
