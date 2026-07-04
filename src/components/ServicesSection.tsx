@@ -159,3 +159,19 @@ export default function ServicesSection() {
     </motion.div>
   );
 }
+
+import { PROJECTS } from "../data";
+import ProjectCard from "./ProjectCard";
+
+export default function ServicesSection() {
+  return (
+    <section>
+      <h3 className="text-3xl font-bold mb-10 border-l-2 border-white pl-4">Data Intelligence Engine</h3>
+      <div className="grid md:grid-cols-2 gap-8">
+        {PROJECTS.map((project) => (
+          <ProjectCard key={project.id} {...project} />
+        ))}
+      </div>
+    </section>
+  );
+}
