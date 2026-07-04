@@ -1,3 +1,4 @@
+import metadata from '../metadata.json';
 import { useState, useEffect, FormEvent } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Menu, X, ArrowUpRight, CheckCircle, Smartphone, Globe, Layers, ArrowRight, Sun, Moon } from "lucide-react";
