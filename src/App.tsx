@@ -1,5 +1,5 @@
 import metadata from '../metadata.json';
-import { useState, useEffect, FormEvent } from "react";
+import { useState, useEffect, FormEvent, lazy, Suspense } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Menu, X, ArrowUpRight, CheckCircle, Smartphone, Globe, Layers, ArrowRight, Sun, Moon } from "lucide-react";
 import { useLanguage } from "./context/LanguageContext";
@@ -8,10 +8,10 @@ import { useLanguage } from "./context/LanguageContext";
 import AboutSection from "./components/AboutSection";
 import CompanySection from "./components/CompanySection";
 import ServicesSection from "./components/ServicesSection";
-import PortfolioSection from "./components/PortfolioSection";
-import ProjectsSection from "./components/ProjectsSection";
+const PortfolioSection = lazy(() => import("./components/PortfolioSection"));
+const ProjectsSection = lazy(() => import("./components/ProjectsSection"));
 import ContactSection from "./components/ContactSection";
-import OracleChatbot from "./components/OracleChatbot";
+const OracleChatbot = lazy(() => import("./components/OracleChatbot"));
 
 
 // Data Imports
@@ -19,7 +19,7 @@ import { COMPANY_PROFILE, FAQS_AEO_DATA } from "./data";
 
 type PageID = "about" | "company" | "services" | "portfolio" | "projects" | "contact";
 
-const pageVariants = {
+const pageVariants: any = {
   initial: {
     opacity: 0,
     y: 24,
@@ -31,7 +31,7 @@ const pageVariants = {
     filter: "blur(0px)",
     transition: {
       duration: 0.6,
-      ease: [0.16, 1, 0.3, 1], // Custom exponential easeOut
+      ease: "easeOut",
     },
   },
   exit: {
@@ -40,7 +40,7 @@ const pageVariants = {
     filter: "blur(4px)",
     transition: {
       duration: 0.4,
-      ease: [0.16, 1, 0.3, 1],
+      ease: "easeOut",
     },
   },
 };
@@ -374,10 +374,14 @@ export default function App() {
               <ServicesSection />
             )}
             {currentPage === "portfolio" && (
-              <PortfolioSection />
+              <Suspense fallback={<div className="min-h-[200px]" />}> 
+                <PortfolioSection />
+              </Suspense>
             )}
             {currentPage === "projects" && (
-              <ProjectsSection />
+              <Suspense fallback={<div className="min-h-[200px]" />}> 
+                <ProjectsSection />
+              </Suspense>
             )}
             {currentPage === "contact" && (
               <ContactSection />
@@ -526,7 +530,9 @@ export default function App() {
       </footer>
 
       {/* Floating Executive AI Oracle Chatbot */}
-      <OracleChatbot />
+      <Suspense fallback={null}>
+        <OracleChatbot />
+      </Suspense>
     </div>
   );
 }

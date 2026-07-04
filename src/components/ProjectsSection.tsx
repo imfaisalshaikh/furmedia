@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, lazy, Suspense } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { PROJECTS_CASE_STUDIES, ProjectCaseStudy } from "../data";
 import { 
@@ -6,7 +6,7 @@ import {
   X, Info, Shield, Cpu, RefreshCw, Layers, Layout, Network, HardDrive, Terminal, Zap, CheckCircle2, Award
 } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
-import ProjectGallery from "./ProjectGallery";
+const ProjectGallery = lazy(() => import("./ProjectGallery"));
 
 export default function ProjectsSection() {
   const { t } = useLanguage();
@@ -2910,7 +2910,9 @@ export default function ProjectsSection() {
 
       {/* Responsive Design & HD Media Gallery Section */}
       <div className="pt-16 border-t border-white/10">
-        <ProjectGallery />
+        <Suspense fallback={<div className="min-h-[200px]" />}>
+          <ProjectGallery />
+        </Suspense>
       </div>
 
       {/* --- SPECTACULAR CLIENT ARCHITECTURE DECONSTRUCTION DRAWER --- */}
