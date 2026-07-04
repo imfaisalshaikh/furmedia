@@ -1,15 +1,14 @@
 {
-  "name": "Remix: FURmedia",
-  "description": "SEO and AEO friendly professional website showcasing the digital services and physical product divisions of FurMedia.",
-  "requestFramePermissions": [],
-  "majorCapabilities": [
-    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
-  ]
-}
-
-{
   "projects": [
-    { "id": 1, "category": "data", "title": "Automated Pipeline", "tech": "Python/SQL" },
-    { "id": 2, "category": "engineering", "title": "SaaS Platform", "tech": "Flutter" }
+    {
+      "title": "Automated Data Pipeline",
+      "tech": "SQL & Python",
+      "desc": "Engineered a custom SQL/Python ingestion layer."
+    },
+    {
+      "title": "C-Suite Executive Dashboard",
+      "tech": "PowerBI & Excel",
+      "desc": "Developed a high-fidelity PowerBI dashboard."
+    }
   ]
 }
