@@ -6,3 +6,10 @@
     "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
   ]
 }
+
+{
+  "projects": [
+    { "id": 1, "category": "data", "title": "Automated Pipeline", "tech": "Python/SQL" },
+    { "id": 2, "category": "engineering", "title": "SaaS Platform", "tech": "Flutter" }
+  ]
+}
