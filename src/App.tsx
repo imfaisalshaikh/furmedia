@@ -1,6 +1,7 @@
 import metadata from '../metadata.json';
-import { useState, useEffect, FormEvent } from "react";
+import { useState, useEffect, FormEvent, lazy, Suspense } from "react";
 import { motion, AnimatePresence } from "motion/react";
+import type { Variants } from "motion";
 import { Menu, X, ArrowUpRight, CheckCircle, Smartphone, Globe, Layers, ArrowRight, Sun, Moon } from "lucide-react";
 import { useLanguage } from "./context/LanguageContext";
 
@@ -8,10 +9,10 @@ import { useLanguage } from "./context/LanguageContext";
 import AboutSection from "./components/AboutSection";
 import CompanySection from "./components/CompanySection";
 import ServicesSection from "./components/ServicesSection";
-import PortfolioSection from "./components/PortfolioSection";
-import ProjectsSection from "./components/ProjectsSection";
+const PortfolioSection = lazy(() => import("./components/PortfolioSection"));
+const ProjectsSection = lazy(() => import("./components/ProjectsSection"));
 import ContactSection from "./components/ContactSection";
-import OracleChatbot from "./components/OracleChatbot";
+const OracleChatbot = lazy(() => import("./components/OracleChatbot"));
 
 
 // Data Imports
@@ -19,7 +20,7 @@ import { COMPANY_PROFILE, FAQS_AEO_DATA } from "./data";
 
 type PageID = "about" | "company" | "services" | "portfolio" | "projects" | "contact";
 
-const pageVariants = {
+const pageVariants: Variants = {
   initial: {
     opacity: 0,
     y: 24,
@@ -31,7 +32,7 @@ const pageVariants = {
     filter: "blur(0px)",
     transition: {
       duration: 0.6,
-      ease: [0.16, 1, 0.3, 1], // Custom exponential easeOut
+      ease: ([0.16, 1, 0.3, 1] as unknown) as any,
     },
   },
   exit: {
@@ -40,7 +41,7 @@ const pageVariants = {
     filter: "blur(4px)",
     transition: {
       duration: 0.4,
-      ease: [0.16, 1, 0.3, 1],
+      ease: ([0.16, 1, 0.3, 1] as unknown) as any,
     },
   },
 };
@@ -193,7 +194,7 @@ export default function App() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#030303] text-[#F5F5F5] relative select-none font-sans overflow-x-hidden md:py-6 md:px-8">
+    <div className="min-h-screen bg-bg text-foreground relative select-none font-sans overflow-x-hidden md:py-6 md:px-8">
       {/* Visual background enhancements */}
       <div className="noise-overlay" />
       <div className="fixed inset-0 grid-bg opacity-[0.3] pointer-events-none z-0" />
@@ -202,16 +203,16 @@ export default function App() {
       <div className="fixed top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full grad-vibrant-glow blur-[130px] pointer-events-none z-0 animate-pulse" style={{ animationDuration: '10s' }} />
 
       {/* GLOBAL MASTER HEADER CONTAINER */}
-      <header className="sticky top-0 z-40 bg-[#040404]/85 backdrop-blur-2xl border border-white/[0.07] md:rounded-full max-w-7xl mx-auto px-6 py-3.5 flex items-center justify-between shadow-3xl">
+      <header className="sticky top-0 z-40 bg-surface-dark-85 backdrop-blur-2xl border border-white/[0.07] md:rounded-full max-w-7xl mx-auto px-6 py-3.5 flex items-center justify-between shadow-3xl">
         <div id="company-logo" className="flex items-center gap-1.5 cursor-pointer" onClick={() => navigateTo("about")}>
-          <span className="font-display text-xl font-bold tracking-tighter text-white hover:text-[#00FF99] transition-colors duration-300">
-            {t("logo")}<span className="text-[#00FF99]">.</span>
+            <span className="font-display text-xl font-bold tracking-tighter text-white hover:text-accent transition-colors duration-300">
+            {t("logo")}<span className="text-accent">.</span>
           </span>
         </div>
 
         {/* Dynamic status pill - Upgraded for high vibrancy and ultra-minimal look */}
-        <div className="hidden lg:flex items-center gap-2 border border-white/[0.07] bg-[#050505] px-4 py-1.5 rounded-full text-[9px] font-mono tracking-widest text-[#a8a8a8]">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#00FF99] shadow-[0_0_8px_#00FF99] animate-pulse inline-block" />
+        <div className="hidden lg:flex items-center gap-2 border border-white/[0.07] bg-surface-dark-85 px-4 py-1.5 rounded-full text-[9px] font-mono tracking-widest text-[#a8a8a8]">
+          <span className="w-1.5 h-1.5 rounded-full bg-accent shadow-[0_0_8px_rgba(0,255,153,0.8)] animate-pulse inline-block" />
           {t("status_pill")}
         </div>
 
@@ -247,12 +248,12 @@ export default function App() {
           <button
             id="theme-toggle-btn"
             onClick={toggleTheme}
-            className="p-1.5 rounded-full border border-white/[0.08] bg-[#0c0c0c]/90 hover:bg-white/[0.05] text-[#9e9e9e] hover:text-[#00FF99] transition-all duration-300 cursor-pointer flex items-center justify-center shadow-inner"
+            className="p-1.5 rounded-full border border-white/[0.08] bg-[#0c0c0c]/90 hover:bg-white/[0.05] text-[#9e9e9e] hover:text-accent transition-all duration-300 cursor-pointer flex items-center justify-center shadow-inner"
             title={theme === "dark" ? "Switch to Day Sight" : "Switch to Night Sight"}
             aria-label="Toggle Theme"
           >
             {theme === "dark" ? (
-              <Sun className="w-3.5 h-3.5 text-[#00FF99]" />
+              <Sun className="w-3.5 h-3.5 text-accent" />
             ) : (
               <Moon className="w-3.5 h-3.5 text-[#00A360]" />
             )}
@@ -271,7 +272,7 @@ export default function App() {
             <button
               onClick={() => setLanguage("ar")}
               className={`px-2 py-0.5 rounded-full transition-all duration-300 cursor-pointer ${
-                language === "ar" ? "bg-[#00FF99] text-black font-extrabold" : "text-[#8a8a8a] hover:text-white"
+                language === "ar" ? "bg-accent text-black font-extrabold" : "text-[#8a8a8a] hover:text-white"
               }`}
             >
               العربية
@@ -291,7 +292,7 @@ export default function App() {
             <button
               id="mobile-menu-trigger"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 border border-brand-border rounded-xl bg-black text-white focus:outline-none hover:border-[#00FF99]/35 transition-colors cursor-pointer"
+              className="p-2 border border-brand-border rounded-xl bg-black text-white focus:outline-none hover:border-accent-40 transition-colors cursor-pointer"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -374,10 +375,14 @@ export default function App() {
               <ServicesSection />
             )}
             {currentPage === "portfolio" && (
-              <PortfolioSection />
+              <Suspense fallback={<div className="min-h-[200px]" />}> 
+                <PortfolioSection />
+              </Suspense>
             )}
             {currentPage === "projects" && (
-              <ProjectsSection />
+              <Suspense fallback={<div className="min-h-[200px]" />}> 
+                <ProjectsSection />
+              </Suspense>
             )}
             {currentPage === "contact" && (
               <ContactSection />
@@ -526,7 +531,9 @@ export default function App() {
       </footer>
 
       {/* Floating Executive AI Oracle Chatbot */}
-      <OracleChatbot />
+      <Suspense fallback={null}>
+        <OracleChatbot />
+      </Suspense>
     </div>
   );
 }

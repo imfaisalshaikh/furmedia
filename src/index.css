@@ -20,6 +20,48 @@
   }
 }
 
+/* Design tokens and utility token classes to replace arbitrary hex bracket utilities */
+:root {
+  --brand-accent: #00FF99;
+  --brand-accent-2: #00FF55;
+  --bg-default: #030303;
+  --surface-dark: #040404;
+  --dark-080808: #080808;
+  --fg: #F5F5F5;
+  --muted: #a8a8a8;
+  --sage: #849a83;
+  --eae4d8: #eae4d8;
+  --charcoal: #2d2a26;
+}
+
+.text-accent { color: var(--brand-accent) !important; }
+.text-accent-2 { color: var(--brand-accent-2) !important; }
+.bg-accent-10 { background-color: rgba(0,255,153,0.1) !important; }
+.border-accent-20 { border-color: rgba(0,255,153,0.2) !important; }
+.hover\:border-accent-70:hover { border-color: rgba(0,255,153,0.7) !important; }
+.hover\:border-accent-40:hover { border-color: rgba(0,255,153,0.4) !important; }
+.hover\:bg-accent:hover { background-color: var(--brand-accent) !important; }
+.bg-accent { background-color: var(--brand-accent) !important; }
+.bg-accent-5 { background-color: rgba(0,255,153,0.05) !important; }
+.bg-accent-20 { background-color: rgba(0,255,153,0.2) !important; }
+.bg-accent-2 { background-color: var(--brand-accent-2) !important; }
+.border-accent-30 { border-color: rgba(0,255,153,0.3) !important; }
+.hover\:border-accent-30:hover { border-color: rgba(0,255,153,0.3) !important; }
+.text-accent-40 { color: rgba(0,255,153,0.4) !important; }
+.fill-accent-40 { fill: rgba(0,255,153,0.4) !important; }
+.shadow-accent-10 { box-shadow: 0 10px 30px -10px rgba(0,255,153,0.1) !important; }
+
+.bg-bg { background-color: var(--bg-default) !important; }
+.text-foreground { color: var(--fg) !important; }
+.bg-surface-dark-85 { background-color: rgba(4,4,4,0.85) !important; }
+.bg-dark-080808 { background-color: var(--dark-080808) !important; }
+.text-muted { color: var(--muted) !important; }
+.text-sage { color: var(--sage) !important; }
+.bg-sage-10 { background-color: rgba(132,154,131,0.1) !important; }
+.border-eae4d8 { border-color: var(--eae4d8) !important; }
+.text-charcoal { color: var(--charcoal) !important; }
+
+
 /* --- High-end Day Mode (Light Theme) Overrides --- */
 :root[data-theme='light'],
 .light {

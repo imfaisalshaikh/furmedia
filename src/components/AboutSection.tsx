@@ -22,16 +22,16 @@ export default function AboutSection({ onNavigate }: AboutSectionProps) {
       {/* Page Title Header */}
       <div className={`border-b border-white/10 pb-8 flex flex-col lg:flex-row lg:items-end justify-between gap-8 ${isRtl ? "text-right" : ""}`}>
         <div>
-          <span className="font-mono text-[10px] tracking-widest text-[#00FF99] uppercase block mb-3">{t("about_genesis")}</span>
+          <span className="font-mono text-[10px] tracking-widest text-accent uppercase block mb-3">{t("about_genesis")}</span>
           <h1 className="huge-type text-white font-bold max-w-xl">
-            {t("logo")}<span className="text-[#00FF99]">.</span>
+            {t("logo")}<span className="text-accent">.</span>
           </h1>
         </div>
         <div className={`max-w-sm space-y-4 ${isRtl ? "lg:text-left" : "lg:text-right"}`}>
-          <p className="font-serif italic text-2xl md:text-3xl text-[#00FF99]">
+          <p className="font-serif italic text-2xl md:text-3xl text-accent">
             {t("about_we_craft")}
           </p>
-          <p className="text-xs font-mono text-[#a8a8a8] leading-relaxed uppercase tracking-wider">
+          <p className="text-xs font-mono text-muted leading-relaxed uppercase tracking-wider">
             {COMPANY_PROFILE.hq} HQ<br />
             {t("about_hq_curation")}
           </p>
@@ -83,7 +83,7 @@ export default function AboutSection({ onNavigate }: AboutSectionProps) {
           {/* Quick Metrics Cards */}
           <div className="grid grid-cols-2 gap-4">
             <div className="border border-brand-border rounded-xl p-4 space-y-2">
-              <Calendar className="w-4 h-4 text-[#00FF99]" />
+              <Calendar className="w-4 h-4 text-accent" />
               <span className="font-mono text-[10px] text-brand-muted uppercase block">ESTABLISHED</span>
               <span className="text-lg font-display font-medium text-white">{COMPANY_PROFILE.foundedYear}</span>
             </div>

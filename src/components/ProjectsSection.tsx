@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, lazy, Suspense } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { PROJECTS_CASE_STUDIES, ProjectCaseStudy } from "../data";
 import { 
@@ -6,7 +6,7 @@ import {
   X, Info, Shield, Cpu, RefreshCw, Layers, Layout, Network, HardDrive, Terminal, Zap, CheckCircle2, Award
 } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
-import ProjectGallery from "./ProjectGallery";
+const ProjectGallery = lazy(() => import("./ProjectGallery"));
 
 export default function ProjectsSection() {
   const { t } = useLanguage();
@@ -2040,7 +2040,7 @@ export default function ProjectsSection() {
                   <span className="w-2.5 h-2.5 rounded-full bg-green-500/80"></span>
                   <span className="text-white font-semibold ml-1 font-sans">FURmedia Corporate BI Platform</span>
                 </div>
-                <span className="text-[#00ff99] font-bold text-[8px] tracking-wider uppercase">LOGS: LIVE</span>
+                <span className="text-accent font-bold text-[8px] tracking-wider uppercase">LOGS: LIVE</span>
               </div>
 
               {/* Data Segment Selectors */}
@@ -2051,7 +2051,7 @@ export default function ProjectsSection() {
                     onClick={() => setBiSegment(seg)}
                     className={`py-1 rounded text-center uppercase font-bold transition-all cursor-pointer ${
                       biSegment === seg
-                        ? "bg-[#00ff99] text-black shadow-md font-extrabold"
+                        ? "bg-accent text-black shadow-md font-extrabold"
                         : "text-gray-400 hover:text-white"
                     }`}
                   >
@@ -2068,7 +2068,7 @@ export default function ProjectsSection() {
                 </div>
                 <div className="bg-white/[0.03] border border-white/[0.06] p-1.5 rounded-lg text-center">
                   <span className="text-[6px] text-gray-400 uppercase block">Conversion Rate</span>
-                  <span className="text-[#00ff99] font-extrabold text-[11px] block mt-0.5">{selectedData.conversion}</span>
+                  <span className="text-accent font-extrabold text-[11px] block mt-0.5">{selectedData.conversion}</span>
                 </div>
                 <div className="bg-white/[0.03] border border-white/[0.06] p-1.5 rounded-lg text-center">
                   <span className="text-[6px] text-gray-400 uppercase block">CLV Index</span>
@@ -2083,7 +2083,7 @@ export default function ProjectsSection() {
                   <button 
                     onClick={() => setBiForecast(!biForecast)}
                     className={`px-1.5 py-0.5 rounded text-[6px] font-bold uppercase transition-all ${
-                      biForecast ? "bg-[#00ff99]/20 text-[#00ff99]" : "bg-white/10 text-gray-400"
+                      biForecast ? "bg-accent-10 text-accent" : "bg-white/10 text-gray-400"
                     }`}
                   >
                     {biForecast ? "● Forecast Run On" : "● Forecast Run Off"}
@@ -2158,12 +2158,12 @@ export default function ProjectsSection() {
               <div className="bg-black/95 rounded-lg border border-white/[0.08] p-2 font-mono text-[7px] leading-tight text-emerald-400">
                 <div className="flex items-center justify-between text-[6px] text-gray-500 uppercase border-b border-white/[0.06] pb-1 mb-1">
                   <span>🖥️ Active Analytical SQL Query Execution Console</span>
-                  <span className="text-[#00ff99]">DBMS: Active</span>
+                  <span className="text-accent">DBMS: Active</span>
                 </div>
                 <div className="whitespace-pre overflow-x-auto text-yellow-100/80">
                   {selectedData.sql}
                 </div>
-                <div className="mt-1 flex items-center gap-1.5 text-[6.5px] text-[#00ff99] border-t border-white/[0.04] pt-1">
+                <div className="mt-1 flex items-center gap-1.5 text-[6.5px] text-accent border-t border-white/[0.04] pt-1">
                   <span className="animate-pulse">●</span>
                   <span>Query Executed Successfully &bull; Latency: 224ms &bull; Cache Status: MISS</span>
                 </div>
@@ -2264,7 +2264,7 @@ export default function ProjectsSection() {
             <div>
               {/* Dark Mode Calorie Stats Header */}
               <div className="flex justify-between items-center text-[9px] text-gray-400 pb-2 border-b border-white/[0.06]">
-                <div className="text-[8px] uppercase font-mono tracking-wider text-[#00ff99]">KINETIC ATHLETICS</div>
+                <div className="text-[8px] uppercase font-mono tracking-wider text-accent">KINETIC ATHLETICS</div>
                 <div className="text-right text-white font-mono">Feb 2025</div>
               </div>
 
@@ -2284,7 +2284,7 @@ export default function ProjectsSection() {
                 <div className="bg-white/[0.02] border border-white/[0.08] p-2 rounded-xl space-y-1.5">
                   <div className="flex justify-between items-center text-[8px]">
                     <div>
-                      <span className="text-[7px] text-[#00ff99] uppercase block font-mono">Today's Workout Plan</span>
+                      <span className="text-[7px] text-accent uppercase block font-mono">Today's Workout Plan</span>
                       <h4 className="text-[9px] font-bold text-white leading-none">Day 01 - Cardio & Core</h4>
                     </div>
                     <span className="text-[6px] text-gray-400 font-mono">07 workouts</span>
@@ -2301,7 +2301,7 @@ export default function ProjectsSection() {
                           <span>{ex.icon}</span>
                           <span className="truncate">{ex.name}</span>
                         </div>
-                        <div className="text-[7px] text-[#00ff99] shrink-0 font-bold">{ex.dur}</div>
+                        <div className="text-[7px] text-accent shrink-0 font-bold">{ex.dur}</div>
                       </div>
                     ))}
                   </div>
@@ -2314,7 +2314,7 @@ export default function ProjectsSection() {
               <div className="text-[7px] font-mono text-center text-gray-500 leading-none">
                 Weekly cycle calendar active
               </div>
-              <button className="bg-[#00ff99] text-black hover:bg-[#00dd85] font-black text-[9px] py-1.5 rounded-full w-full uppercase tracking-widest shadow-lg shadow-[#00ff99]/10 cursor-pointer text-center">
+              <button className="bg-accent text-black hover:bg-accent font-black text-[9px] py-1.5 rounded-full w-full uppercase tracking-widest shadow-lg shadow-[0_10px_30px_rgba(0,255,153,0.1)] cursor-pointer text-center">
                 🏃 Start Workout Now
               </button>
             </div>
@@ -2544,7 +2544,7 @@ export default function ProjectsSection() {
       {/* Page header */}
       <div className="border-b border-white/10 pb-8 flex flex-col xl:flex-row xl:items-end justify-between gap-8">
         <div>
-          <span className="font-mono text-[10px] tracking-widest text-[#00FF99] uppercase block mb-3">{t("projects_subtitle")}</span>
+          <span className="font-mono text-[10px] tracking-widest text-accent uppercase block mb-3">{t("projects_subtitle")}</span>
           <h1 className="text-4xl md:text-7xl font-display font-extrabold tracking-tight leading-none text-white uppercase">
             {t("projects_title")}
           </h1>
@@ -2559,7 +2559,7 @@ export default function ProjectsSection() {
               onClick={() => setSelectedCaseIdx(idx)}
               className={`px-3 py-1.5 rounded-lg text-[10px] font-mono tracking-wider transition-all duration-300 cursor-pointer flex-1 xl:flex-none text-center ${
                 selectedCaseIdx === idx
-                  ? "bg-[#00FF99] text-black font-bold shadow-md"
+                  ? "bg-accent text-black font-bold shadow-md"
                   : "text-brand-muted hover:text-white"
               }`}
             >
@@ -2570,19 +2570,19 @@ export default function ProjectsSection() {
       </div>
 
       {/* Main Case Study Layout */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
         {/* Left Column: Context details */}
-        <div className="lg:col-span-8 space-y-10 font-sans">
+          <div className="lg:col-span-8 space-y-10 font-sans">
           <div className="space-y-4">
-            <span className="font-mono text-xs text-[#00FF99] uppercase flex items-center gap-2">
-              <Star className="w-3.5 h-3.5 text-[#00FF99] fill-[#00FF99]/40" />
+            <span className="font-mono text-xs text-accent uppercase flex items-center gap-2">
+              <Star className="w-3.5 h-3.5 text-accent fill-accent-40" />
               CLIENT PARTNERSHIP HIGHLIGHT
             </span>
             <h2 className="text-2xl md:text-3xl font-display font-semibold text-white tracking-tight leading-tight">
               {currentCase.title}
             </h2>
             
-            <div className="flex flex-wrap gap-x-6 gap-y-2 text-xs font-mono text-brand-muted pt-2 border-b border-white/[0.08] pb-6">
+              <div className="flex flex-wrap gap-x-6 gap-y-2 text-xs font-mono text-brand-muted pt-2 border-b border-white/[0.08] pb-6">
               <div>
                 CLIENT: <span className="text-white">{currentCase.client}</span>
               </div>
@@ -2592,15 +2592,15 @@ export default function ProjectsSection() {
               </div>
               <div className="hidden sm:block text-white/[0.08]">|</div>
               <div>
-                MILESTONE: <span className="text-[#00FF99]">{currentCase.milestone}</span>
+                MILESTONE: <span className="text-accent">{currentCase.milestone}</span>
               </div>
             </div>
           </div>
 
           {/* Deep narrative segments */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="space-y-3">
-              <h4 className="font-mono text-[10px] text-[#00FF99] uppercase tracking-widest flex items-center gap-1.5">
+              <h4 className="font-mono text-[10px] text-accent uppercase tracking-widest flex items-center gap-1.5">
                 <Sliders className="w-3.5 h-3.5" />
                 The Core Challenge
               </h4>
@@ -2610,7 +2610,7 @@ export default function ProjectsSection() {
             </div>
             
             <div className="space-y-3">
-              <h4 className="font-mono text-[10px] text-[#00FF99] uppercase tracking-widest flex items-center gap-1.5">
+              <h4 className="font-mono text-[10px] text-accent uppercase tracking-widest flex items-center gap-1.5">
                 <Sparkles className="w-3.5 h-3.5" />
                 Our Formulation
               </h4>
@@ -2623,19 +2623,19 @@ export default function ProjectsSection() {
           <div className="h-[1px] bg-white/[0.08] w-full"></div>
 
           {/* Core Outcomes list */}
-          <div className="space-y-6">
-            <h4 className="font-mono text-xs text-[#00FF99] tracking-widest uppercase">
+              <div className="space-y-6">
+            <h4 className="font-mono text-xs text-accent tracking-widest uppercase">
               DELIVERED OUTCOMES & METRICS
             </h4>
-            <div className="space-y-3 max-w-2xl">
+              <div className="space-y-3 max-w-2xl">
               {currentCase.outcomes.map((outcome, oIdx) => (
                 <div
                   key={oIdx}
-                  className="flex items-start gap-3 p-4 border border-white/[0.06] rounded-xl bg-white/[0.01] hover:border-[#00FF99]/20 transition-all duration-300"
-                >
-                  <span className="font-mono text-xs text-[#00FF99] font-bold bg-[#00FF99]/10 border border-[#00FF99]/15 w-7 h-7 rounded-lg flex items-center justify-center shrink-0">
-                    {oIdx + 1}
-                  </span>
+                  className="flex items-start gap-3 p-4 border border-white/[0.06] rounded-xl bg-white/[0.01] hover:border-accent-40 transition-all duration-300"
+                  >
+                    <span className="font-mono text-xs text-accent font-bold bg-accent-10 border border-accent-20 w-7 h-7 rounded-lg flex items-center justify-center shrink-0">
+                      {oIdx + 1}
+                    </span>
                   <p className="text-sm text-[#cdcdcd] font-sans leading-relaxed pt-0.5 font-light">
                     {outcome}
                   </p>
@@ -2647,13 +2647,13 @@ export default function ProjectsSection() {
 
         {/* Right Column: Statistics Widget Panel & Live Mobile Emulator */}
         <div className="lg:col-span-4 space-y-6 lg:sticky lg:top-8">
-          <div className="bg-white/[0.015] border border-white/[0.08] rounded-2xl p-6 relative overflow-hidden group hover:border-[#00FF99]/30 transition-colors">
+          <div className="bg-white/[0.015] border border-white/[0.08] rounded-2xl p-6 relative overflow-hidden group hover:border-accent-40 transition-colors">
             {/* Visual background lines */}
             <div className="absolute inset-0 grid-bg opacity-15 pointer-events-none"></div>
 
             <div className="relative z-10 space-y-6">
-              <div className="flex items-center gap-2">
-                <BarChart3 className="w-4 h-4 text-[#00FF99]" />
+                <div className="flex items-center gap-2">
+                <BarChart3 className="w-4 h-4 text-accent" />
                 <span className="font-mono text-[10px] tracking-widest text-[#a8a8a8] uppercase">
                   Verified Data Dashboard
                 </span>
@@ -2669,7 +2669,7 @@ export default function ProjectsSection() {
                       {stat.label}
                     </span>
                     <div className="flex items-baseline gap-2">
-                      <span className="text-4xl font-display font-medium text-white tracking-tight group-hover:text-[#00FF99] transition-colors duration-500">
+                      <span className="text-4xl font-display font-medium text-white tracking-tight group-hover:text-accent transition-colors duration-500">
                         {stat.value}
                       </span>
                     </div>
@@ -2688,13 +2688,13 @@ export default function ProjectsSection() {
           {/* Interactive Live Screen Emulator Container */}
           <div className="space-y-3">
             <div className="flex items-center justify-between px-1">
-              <div className="flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#00FF99] animate-ping"></span>
+                <div className="flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-accent animate-ping"></span>
                 <span className="font-mono text-[9px] tracking-widest text-[#a8a8a8] uppercase">Interactive Screen Preview</span>
               </div>
               <button
                 onClick={() => setActiveInsightsProject(currentCase)}
-                className="text-[9px] font-mono tracking-widest text-[#00FF99] hover:text-white bg-[#00FF99]/10 hover:bg-[#00FF99]/20 border border-[#00FF99]/25 px-2 py-0.5 rounded transition-all cursor-pointer flex items-center gap-1 leading-none"
+                className="text-[9px] font-mono tracking-widest text-accent hover:text-white bg-accent-10 hover:bg-accent-10 border border-accent-20 px-2 py-0.5 rounded transition-all cursor-pointer flex items-center gap-1 leading-none"
               >
                 <span>🔍</span> System Architecture
               </button>
@@ -2707,14 +2707,14 @@ export default function ProjectsSection() {
               className="relative group cursor-pointer"
               onClick={() => setActiveInsightsProject(currentCase)}
             >
-              <div className="absolute inset-0 bg-black/85 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl z-20 flex flex-col items-center justify-center backdrop-blur-xxs border border-[#00FF99]/30">
+              <div className="absolute inset-0 bg-black/85 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl z-20 flex flex-col items-center justify-center backdrop-blur-xxs border border-accent-20">
                 <div className="bg-neutral-950 p-4 rounded-xl border border-white/10 text-center max-w-[85%] space-y-1.5 shadow-2xl">
-                  <span className="text-[#00FF99] text-base">🔍</span>
+                  <span className="text-accent text-base">🔍</span>
                   <h4 className="font-display text-white text-xs font-semibold">Deconstruct System Architecture</h4>
                   <p className="text-[9px] text-[#adadad] font-mono leading-relaxed">
                     Analyze tech stack, database entities, and engineering challenges solved for {currentCase.client}.
                   </p>
-                  <span className="inline-block text-[8px] bg-[#00FF99]/15 text-[#00FF99] border border-[#00FF99]/30 px-2 py-0.5 rounded font-mono uppercase font-bold mt-1">
+                  <span className="inline-block text-[8px] bg-accent-10 text-accent border border-accent-20 px-2 py-0.5 rounded font-mono uppercase font-bold mt-1">
                     Launch Deep-Dive Drawer
                   </span>
                 </div>
@@ -2731,8 +2731,8 @@ export default function ProjectsSection() {
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
             <div>
               <div className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-[#00FF99] animate-pulse"></span>
-                <span className="font-mono text-xs tracking-widest text-[#00FF99] uppercase font-bold">HD Large-Format Property Suite</span>
+                <span className="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
+                <span className="font-mono text-xs tracking-widest text-accent uppercase font-bold">HD Large-Format Property Suite</span>
               </div>
               <h2 className="text-2xl md:text-3xl font-display font-medium text-white tracking-tight mt-1">
                 Unified Ecosystem Gallery (8 Multi-Screen Boards)
@@ -2910,7 +2910,9 @@ export default function ProjectsSection() {
 
       {/* Responsive Design & HD Media Gallery Section */}
       <div className="pt-16 border-t border-white/10">
-        <ProjectGallery />
+        <Suspense fallback={<div className="min-h-[200px]" />}>
+          <ProjectGallery />
+        </Suspense>
       </div>
 
       {/* --- SPECTACULAR CLIENT ARCHITECTURE DECONSTRUCTION DRAWER --- */}
@@ -2969,16 +2971,16 @@ export default function ProjectsSection() {
                 {/* Scrollable insights panel client area */}
                 <div className="flex-1 overflow-y-auto px-6 py-8 space-y-8 relative z-10 no-scrollbar">
                   {/* Overview Insight Card */}
-                  <div className="bg-[#00FF99]/5 border border-[#00FF99]/20 rounded-2xl p-5 relative overflow-hidden">
-                    <div className="absolute top-2 right-2 font-mono text-[8.5px] text-[#00FF99]/40">
+                  <div className="bg-accent-5 border border-accent-20 rounded-2xl p-5 relative overflow-hidden">
+                    <div className="absolute top-2 right-2 font-mono text-[8.5px] text-accent-40">
                       INFO SEC_REG
                     </div>
                     <div className="flex items-start gap-3.5">
-                      <div className="w-9 h-9 rounded-xl bg-[#00FF99]/10 border border-[#00FF99]/30 flex items-center justify-center text-lg shrink-0">
+                      <div className="w-9 h-9 rounded-xl bg-accent-10 border border-accent-30 flex items-center justify-center text-lg shrink-0">
                         ⚡
                       </div>
                       <div className="space-y-1">
-                        <span className="font-mono text-[9px] uppercase text-[#00FF99] tracking-wider block">Architectural Formulation</span>
+                        <span className="font-mono text-[9px] uppercase text-accent tracking-wider block">Architectural Formulation</span>
                         <p className="text-xs text-brand-muted leading-relaxed font-light">
                           {spec.deepInsights}
                         </p>
@@ -2988,7 +2990,7 @@ export default function ProjectsSection() {
 
                   {/* High Vibrant Technical Stack Badges */}
                   <div className="space-y-3.5">
-                    <span className="font-mono text-[10px] text-[#00FF99] uppercase tracking-widest font-black block">
+                    <span className="font-mono text-[10px] text-accent uppercase tracking-widest font-black block">
                       ⚡ VERIFIED SYSTEM STACK
                     </span>
 
@@ -2998,7 +3000,7 @@ export default function ProjectsSection() {
                         <span className="font-mono text-[8.5px] text-gray-400 uppercase tracking-wider block">UI & Client Foundation</span>
                         <div className="flex flex-wrap gap-1.5">
                           {spec.techStack.frontend.map((t, idx) => (
-                            <span key={idx} className="bg-white/5 border border-white/10 text-white text-[9.5px] font-mono px-2 py-0.5 rounded-md hover:border-[#00FF99]/30 transition-colors">
+                            <span key={idx} className="bg-white/5 border border-white/10 text-white text-[9.5px] font-mono px-2 py-0.5 rounded-md hover:border-accent-30 transition-colors">
                               {t}
                             </span>
                           ))}
@@ -3010,7 +3012,7 @@ export default function ProjectsSection() {
                         <span className="font-mono text-[8.5px] text-gray-400 uppercase tracking-wider block">API & Computation</span>
                         <div className="flex flex-wrap gap-1.5">
                           {spec.techStack.backend.map((t, idx) => (
-                            <span key={idx} className="bg-white/5 border border-white/10 text-white text-[9.5px] font-mono px-2 py-0.5 rounded-md hover:border-[#00FF99]/30 transition-colors">
+                            <span key={idx} className="bg-white/5 border border-white/10 text-white text-[9.5px] font-mono px-2 py-0.5 rounded-md hover:border-accent-30 transition-colors">
                               {t}
                             </span>
                           ))}
@@ -3022,7 +3024,7 @@ export default function ProjectsSection() {
                         <span className="font-mono text-[8.5px] text-gray-400 uppercase tracking-wider block">Databases & Buffers</span>
                         <div className="flex flex-wrap gap-1.5">
                           {spec.techStack.database.map((t, idx) => (
-                            <span key={idx} className="bg-white/5 border border-[#00FF99]/10 text-white text-[9.5px] font-mono px-2 py-0.5 rounded-md hover:border-[#00FF99]/30 transition-colors">
+                            <span key={idx} className="bg-white/5 border border-accent-20 text-white text-[9.5px] font-mono px-2 py-0.5 rounded-md hover:border-accent-30 transition-colors">
                               {t}
                             </span>
                           ))}
@@ -3034,7 +3036,7 @@ export default function ProjectsSection() {
                         <span className="font-mono text-[8.5px] text-gray-400 uppercase tracking-wider block">Protocols & Security</span>
                         <div className="flex flex-wrap gap-1.5">
                           {spec.techStack.protocols.map((t, idx) => (
-                            <span key={idx} className="bg-[#00FF99]/5 border border-[#00FF99]/20 text-[#00FF99] text-[9.5px] font-mono px-2 py-0.5 rounded-md hover:border-white/30 transition-colors">
+                            <span key={idx} className="bg-accent-5 border border-accent-20 text-accent text-[9.5px] font-mono px-2 py-0.5 rounded-md hover:border-white/30 transition-colors">
                               {t}
                             </span>
                           ))}
@@ -3045,7 +3047,7 @@ export default function ProjectsSection() {
 
                   {/* Core Challenges & Solutions */}
                   <div className="space-y-4">
-                    <span className="font-mono text-[10px] text-[#00FF99] uppercase tracking-widest font-black block">
+                    <span className="font-mono text-[10px] text-accent uppercase tracking-widest font-black block">
                       🛠️ MISSION-CRITICAL INCIDENTS & RESOLUTION LOGS
                     </span>
 
@@ -3072,7 +3074,7 @@ export default function ProjectsSection() {
                               </p>
                             </div>
                             <div className="space-y-1 border-t border-white/[0.05] pt-2">
-                              <span className="text-[8px] font-mono text-[#00FF99] uppercase">Engineered Resolution Strategy</span>
+                              <span className="text-[8px] font-mono text-accent uppercase">Engineered Resolution Strategy</span>
                               <p className="text-xs text-white font-light leading-relaxed">
                                 {chan.solution}
                               </p>
@@ -3085,7 +3087,7 @@ export default function ProjectsSection() {
 
                   {/* ASCII Logic/Architecture Diagram Flowchart */}
                   <div className="space-y-3">
-                    <span className="font-mono text-[10px] text-[#00FF99] uppercase tracking-widest font-black block">
+                    <span className="font-mono text-[10px] text-accent uppercase tracking-widest font-black block">
                       📁 CLIENT-SYSTEM DATA FLOW DOCUMENT
                     </span>
 
@@ -3106,7 +3108,7 @@ export default function ProjectsSection() {
 
                   {/* Performance Indicators / KPIs */}
                   <div className="space-y-4">
-                    <span className="font-mono text-[10px] text-[#00FF99] uppercase tracking-widest font-black block">
+                    <span className="font-mono text-[10px] text-accent uppercase tracking-widest font-black block">
                       📊 SYSTEM CAPABILITY INDICATORS
                     </span>
 
@@ -3115,7 +3117,7 @@ export default function ProjectsSection() {
                         <div key={kIdx} className="space-y-1.5">
                           <div className="flex justify-between text-[10px] font-mono text-gray-400">
                             <span className="uppercase">{kpi.label}</span>
-                            <span className="text-[#00FF99] font-bold">{kpi.score}% RATIO</span>
+                            <span className="text-accent font-bold">{kpi.score}% RATIO</span>
                           </div>
                           {/* Progress slider bar */}
                           <div className="h-1.5 bg-white/5 rounded-full overflow-hidden border border-white/10">
@@ -3123,7 +3125,7 @@ export default function ProjectsSection() {
                               initial={{ width: 0 }}
                               animate={{ width: `${kpi.score}%` }}
                               transition={{ duration: 1.2, ease: "easeOut" }}
-                              className="h-full bg-[#00FF99] rounded-full"
+                              className="h-full bg-accent rounded-full"
                             />
                           </div>
                         </div>

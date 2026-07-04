@@ -61,7 +61,7 @@ export default function ContactSection() {
     >
       {/* SECTION HEADER */}
       <div className="border-b border-white/10 pb-8">
-        <span className="font-mono text-[10px] tracking-widest text-[#00FF99] uppercase block mb-3">{t("contact_subtitle")}</span>
+        <span className="font-mono text-[10px] tracking-widest text-accent uppercase block mb-3">{t("contact_subtitle")}</span>
         <h1 className="text-4xl md:text-7xl font-display font-extrabold tracking-tight leading-none text-white uppercase">
           {t("contact_title")}
         </h1>
@@ -94,7 +94,7 @@ export default function ContactSection() {
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       placeholder="e.g. Alexander Vance"
-                      className="w-full bg-white/[0.01] border border-white/[0.08] hover:border-white/[0.15] focus:border-[#00FF99] transition-colors rounded-xl px-4 py-3.5 text-sm text-white placeholder-brand-muted focus:outline-none"
+                      className="w-full bg-white/[0.01] border border-white/[0.08] hover:border-white/[0.15] focus:border-accent transition-colors rounded-xl px-4 py-3.5 text-sm text-white placeholder-brand-muted focus:outline-none"
                     />
                   </div>
 
@@ -110,7 +110,7 @@ export default function ContactSection() {
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       placeholder="e.g. vance@holding.co"
-                      className="w-full bg-white/[0.01] border border-white/[0.08] hover:border-white/[0.15] focus:border-[#00FF99] transition-colors rounded-xl px-4 py-3.5 text-sm text-white placeholder-brand-muted focus:outline-none"
+                      className="w-full bg-white/[0.01] border border-white/[0.08] hover:border-white/[0.15] focus:border-accent transition-colors rounded-xl px-4 py-3.5 text-sm text-white placeholder-brand-muted focus:outline-none"
                     />
                   </div>
                 </div>
@@ -125,7 +125,7 @@ export default function ContactSection() {
                       id="client-interest"
                       value={formData.interest}
                       onChange={(e) => setFormData({ ...formData, interest: e.target.value })}
-                      className="w-full bg-[#080808] border border-white/[0.08] hover:border-white/[0.15] focus:border-[#00FF99] transition-colors rounded-xl px-4 py-3.5 text-sm text-[#dadada] focus:outline-none cursor-pointer"
+                      className="w-full bg-dark-080808 border border-white/[0.08] hover:border-white/[0.15] focus:border-accent transition-colors rounded-xl px-4 py-3.5 text-sm text-muted focus:outline-none cursor-pointer"
                     >
                       <option value="app-development">Digital: App Systems (iOS & Android)</option>
                       <option value="seo-marketing">Digital: SEO, Growth & Paid Media</option>
@@ -147,7 +147,7 @@ export default function ContactSection() {
                       id="client-scope"
                       value={formData.scope}
                       onChange={(e) => setFormData({ ...formData, scope: e.target.value })}
-                      className="w-full bg-[#080808] border border-white/[0.08] hover:border-white/[0.15] focus:border-[#00FF99] transition-colors rounded-xl px-4 py-3.5 text-sm text-[#dadada] focus:outline-none cursor-pointer"
+                      className="w-full bg-dark-080808 border border-white/[0.08] hover:border-white/[0.15] focus:border-accent transition-colors rounded-xl px-4 py-3.5 text-sm text-muted focus:outline-none cursor-pointer"
                     >
                       <option value="enterprise">Global Enterprise Overhaul</option>
                       <option value="brand">Single Brand Architecture Launch</option>
@@ -168,7 +168,7 @@ export default function ContactSection() {
                      value={formData.message}
                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                      placeholder="Briefly describe what challenges details exist, the physical/digital specifications, or fragrance/materials criteria..."
-                     className="w-full bg-white/[0.01] border border-white/[0.08] hover:border-white/[0.15] focus:border-[#00FF99] transition-colors rounded-xl px-4 py-3.5 text-sm text-white placeholder-brand-muted focus:outline-none resize-none font-sans"
+                     className="w-full bg-white/[0.01] border border-white/[0.08] hover:border-white/[0.15] focus:border-accent transition-colors rounded-xl px-4 py-3.5 text-sm text-white placeholder-brand-muted focus:outline-none resize-none font-sans"
                   ></textarea>
                 </div>
 
@@ -177,7 +177,7 @@ export default function ContactSection() {
                   id="submit-contact"
                   type="submit"
                   disabled={submitting}
-                  className="w-full group flex items-center justify-center gap-2 border border-[#00FF99]/40 bg-[#00FF99]/10 text-[#00FF99] hover:bg-[#00FF99] hover:text-black hover:border-[#00FF99] px-6 py-4 rounded-xl text-xs font-mono tracking-wider transition-all duration-300 disabled:opacity-50 disabled:pointer-events-none cursor-pointer shadow-[0_0_15px_rgba(0,255,153,0.05)] hover:shadow-[0_0_20px_rgba(0,255,153,0.2)] font-bold"
+                  className="w-full group flex items-center justify-center gap-2 border border-accent-20 bg-accent-10 text-accent hover:bg-accent hover:text-black hover:border-accent px-6 py-4 rounded-xl text-xs font-mono tracking-wider transition-all duration-300 disabled:opacity-50 disabled:pointer-events-none cursor-pointer shadow-[0_0_15px_rgba(0,255,153,0.05)] hover:shadow-[0_0_20px_rgba(0,255,153,0.2)] font-bold"
                 >
                   {submitting ? (
                     <>
@@ -199,7 +199,7 @@ export default function ContactSection() {
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0 }}
-                className="border border-[#00FF99]/35 rounded-3xl p-6 md:p-8 bg-black/60 relative overflow-hidden"
+                className="border border-accent-20 rounded-3xl p-6 md:p-8 bg-black/60 relative overflow-hidden"
               >
                 {/* Background watermarks */}
                 <div className="absolute inset-0 grid-bg opacity-15 pointer-events-none"></div>
@@ -208,15 +208,15 @@ export default function ContactSection() {
                   {/* Header visual */}
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2.5">
-                      <div className="p-2 border border-[#00FF99]/30 bg-black/40 rounded-xl">
-                        <CheckCircle2 className="w-5 h-5 text-[#00FF99]" />
+                      <div className="p-2 border border-accent-20 bg-black/40 rounded-xl">
+                        <CheckCircle2 className="w-5 h-5 text-accent" />
                       </div>
                       <div>
                         <h4 className="font-display font-medium text-white">Inquiry Dispatched</h4>
                         <span className="font-mono text-[9px] text-[#8a8a8a] uppercase">FURmedia SECURE INBOX V3</span>
                       </div>
                     </div>
-                    <span className="font-mono text-xs text-[#00FF99] tracking-wider bg-white/5 border border-[#00FF99]/20 px-3 py-1 rounded-full uppercase">
+                    <span className="font-mono text-xs text-accent tracking-wider bg-white/5 border border-accent-20 px-3 py-1 rounded-full uppercase">
                       CONFIRMED
                     </span>
                   </div>
