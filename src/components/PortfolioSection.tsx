@@ -24,7 +24,7 @@ export default function PortfolioSection() {
       {/* Section Title */}
       <div className="border-b border-white/10 pb-8 flex flex-col lg:flex-row lg:items-end justify-between gap-8">
         <div>
-          <span className="font-mono text-[10px] tracking-widest text-[#00FF99] uppercase block mb-3">{t("portfolio_subtitle")}</span>
+          <span className="font-mono text-[10px] tracking-widest text-accent uppercase block mb-3">{t("portfolio_subtitle")}</span>
           <h1 className="text-4xl md:text-7xl font-display font-extrabold tracking-tight leading-none text-white uppercase">
             {t("portfolio_title")}
           </h1>
@@ -74,7 +74,7 @@ export default function PortfolioSection() {
               exit={{ opacity: 0, scale: 0.95 }}
               transition={{ duration: 0.45, delay: idx * 0.04 }}
               onClick={() => setSelectedItem(item)}
-              className="group cursor-pointer border border-white/[0.07] hover:border-[#00FF99]/40 bg-white/[0.012] hover:bg-white/[0.03] rounded-2xl overflow-hidden flex flex-col justify-between transition-all duration-300"
+              className="group cursor-pointer border border-white/[0.07] hover:border-accent-40 bg-white/[0.012] hover:bg-white/[0.03] rounded-2xl overflow-hidden flex flex-col justify-between transition-all duration-300"
             >
               {/* Product Card Image Frame */}
               <div className="aspect-[4/3] w-full overflow-hidden relative bg-[#121212] border-b border-white/[0.05]">
@@ -88,7 +88,7 @@ export default function PortfolioSection() {
 
                 {/* Interactive Overlay Badging */}
                 <div className="absolute top-4 left-4 z-20">
-                  <span className="font-mono text-[9px] tracking-widest text-[#f4f4f4] bg-black/85 backdrop-blur-md border border-white/[0.08] px-2.5 py-1 rounded-full uppercase">
+                  <span className="font-mono text-[9px] tracking-widest text-foreground bg-black/85 backdrop-blur-md border border-white/[0.08] px-2.5 py-1 rounded-full uppercase">
                     {item.category}
                   </span>
                 </div>
@@ -104,7 +104,7 @@ export default function PortfolioSection() {
               {/* Card Meta Content */}
               <div className="p-5 space-y-3 flex-1 flex flex-col justify-between">
                 <div>
-                  <h3 className="text-lg font-display font-medium text-white group-hover:text-[#00FF99] transition-colors duration-300">
+                  <h3 className="text-lg font-display font-medium text-white group-hover:text-accent transition-colors duration-300">
                     {item.title}
                   </h3>
                   <p className="text-xs text-brand-muted font-sans font-light leading-relaxed mt-2 line-clamp-2">
@@ -170,7 +170,7 @@ export default function PortfolioSection() {
                 
                 {/* Visual labels */}
                 <div className="absolute bottom-4 left-6 z-20">
-                  <span className="font-mono text-[9px] tracking-widest text-[#00FF99] bg-black/80 border border-[#00FF99]/30 px-3 py-1 rounded-full uppercase">
+                  <span className="font-mono text-[9px] tracking-widest text-accent bg-accent-10 border-accent-20 px-3 py-1 rounded-full uppercase">
                     {selectedItem.category}
                   </span>
                 </div>
@@ -182,7 +182,7 @@ export default function PortfolioSection() {
                   <h3 className="text-2xl md:text-3xl font-display font-medium text-white">
                     {selectedItem.title}
                   </h3>
-                  <p className="text-[10px] font-mono text-[#00FF99] tracking-widest uppercase">
+                  <p className="text-[10px] font-mono text-accent tracking-widest uppercase">
                     {selectedItem.division === "digital" ? "DIGITAL SERVICES DESIGNATION // SEO FRIENDLY" : "PHYSICAL BRAND OUTLINE // AEO HARMONIZED"}
                   </p>
                 </div>
@@ -193,8 +193,8 @@ export default function PortfolioSection() {
 
                 {/* Molecule ingredient specs */}
                 <div className="space-y-4 pt-2">
-                  <span className="font-mono text-[9px] tracking-wider text-[#8a8a8a] uppercase flex items-center gap-1.5">
-                    <Cpu className="w-3.5 h-3.5 text-[#00FF99]" />
+                  <span className="font-mono text-[9px] tracking-wider text-muted uppercase flex items-center gap-1.5">
+                    <Cpu className="w-3.5 h-3.5 text-accent" />
                     TECHNICAL FORMULATIONS & METRICS
                   </span>
                   

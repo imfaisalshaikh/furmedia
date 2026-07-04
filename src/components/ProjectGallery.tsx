@@ -313,8 +313,8 @@ export default function ProjectGallery() {
       <div className="relative z-10 flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-white/10 pb-6">
         <div>
           <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-[#00FF99] animate-pulse"></span>
-            <span className="font-mono text-[9px] tracking-widest text-[#00FF99] uppercase font-semibold">HD Media Lab</span>
+            <span className="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
+            <span className="font-mono text-[9px] tracking-widest text-accent uppercase font-semibold">HD Media Lab</span>
           </div>
           <h2 className="text-xl md:text-3xl font-display font-medium text-white tracking-tight mt-1">
             Dynamic Design Systems & High-Format Previews
@@ -357,7 +357,7 @@ export default function ProjectGallery() {
             placeholder="Search screens, design systems, colors..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full bg-white/[0.02] border border-white/10 hover:border-white/20 focus:border-[#00FF99] rounded-xl pl-9.5 pr-4 py-2 text-xs font-sans text-white placeholder-gray-500 outline-none transition-all"
+            className="w-full bg-white/[0.02] border border-white/10 hover:border-white/20 focus:border-accent rounded-xl pl-9.5 pr-4 py-2 text-xs font-sans text-white placeholder-gray-500 outline-none transition-all"
           />
         </div>
 
@@ -367,7 +367,7 @@ export default function ProjectGallery() {
           <select
             value={selectedProjectFilter}
             onChange={(e) => setSelectedProjectFilter(e.target.value)}
-            className="w-full bg-white/[0.02] border border-white/50 focus:border-[#00FF99] text-white text-xs font-sans p-2 rounded-xl border-white/10 outline-none cursor-pointer"
+            className="w-full bg-white/[0.02] border border-white/50 focus:border-accent text-white text-xs font-sans p-2 rounded-xl border-white/10 outline-none cursor-pointer"
           >
             <option value="all" className="bg-neutral-900 text-white">All Active Systems</option>
             {PROJECTS_CASE_STUDIES.map(st => (
@@ -384,7 +384,7 @@ export default function ProjectGallery() {
           <select
             value={selectedTagFilter}
             onChange={(e) => setSelectedTagFilter(e.target.value)}
-            className="w-full bg-white/[0.02] border border-white/50 focus:border-[#00FF99] text-white text-xs font-sans p-2 rounded-xl border-white/10 outline-none cursor-pointer"
+            className="w-full bg-white/[0.02] border border-white/50 focus:border-accent text-white text-xs font-sans p-2 rounded-xl border-white/10 outline-none cursor-pointer"
           >
             <option value="all" className="bg-neutral-900 text-white">All Aesthetic Genres</option>
             {allUniqueTags.map(tag => (
@@ -425,14 +425,14 @@ export default function ProjectGallery() {
                   setLightboxZoom(1);
                   setLightboxLens("original");
                 }}
-                className="snap-start shrink-0 w-[290px] md:w-[480px] bg-white/[0.01] border border-white/10 hover:border-[#00FF99]/30 rounded-3xl overflow-hidden cursor-pointer transition-all duration-500 group relative flex flex-col justify-between"
+                className="snap-start shrink-0 w-[290px] md:w-[480px] bg-white/[0.01] border border-white/10 hover:border-accent-40 rounded-3xl overflow-hidden cursor-pointer transition-all duration-500 group relative flex flex-col justify-between"
               >
                 {/* Visual card header */}
                 <div className="p-4 border-b border-white/[0.05] bg-white/[0.01] flex justify-between items-center bg-zinc-950/20">
                   <span className="font-mono text-[9px] text-gray-400 font-extrabold uppercase tracking-widest leading-none">
                     {img.projectName}
                   </span>
-                  <span className="text-[9px] bg-[#00FF99]/10 text-[#00FF99] font-mono border border-[#00FF99]/20 px-2.5 py-0.5 rounded-full">
+                  <span className="text-[9px] bg-accent-10 text-accent font-mono border border-accent-20 px-2.5 py-0.5 rounded-full">
                     {img.techSpecs.aspectRatio}
                   </span>
                 </div>
@@ -758,8 +758,8 @@ export default function ProjectGallery() {
                 {/* Meta details header heading */}
                 <div className="space-y-4">
                   <div className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#00FF99] animate-pulse"></span>
-                    <span className="font-mono text-[9px] tracking-widest text-[#00FF99] uppercase font-bold">SPECIFICATIONS MATRIX</span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse"></span>
+                    <span className="font-mono text-[9px] tracking-widest text-accent uppercase font-bold">SPECIFICATIONS MATRIX</span>
                   </div>
                   
                   <div className="space-y-1">
@@ -805,9 +805,9 @@ export default function ProjectGallery() {
 
                         {/* Clipboard icon copy feedback */}
                         <div className="text-gray-400 hover:text-white transition-colors">
-                          {copiedColor === color.hex ? (
-                            <span className="text-[9px] font-mono text-[#00FF99] font-bold flex items-center gap-1 bg-[#00FF99]/10 border border-[#00FF55]/20 px-2 py-0.5 rounded leading-none">
-                              <Check className="w-3 h-3 text-[#00FF99]" /> Copied!
+                            {copiedColor === color.hex ? (
+                            <span className="text-[9px] font-mono text-accent font-bold flex items-center gap-1 bg-accent-10 border border-accent-20 px-2 py-0.5 rounded leading-none">
+                              <Check className="w-3 h-3 text-accent" /> Copied!
                             </span>
                           ) : (
                             <Copy className="w-3.5 h-3.5" />
@@ -847,8 +847,8 @@ export default function ProjectGallery() {
 
                 {/* Action CTA triggers */}
                 <div className="pt-2">
-                  <div className="bg-[#00FF99]/5 border border-[#00FF99]/20 p-4 rounded-2xl text-center space-y-2 relative overflow-hidden group">
-                    <div className="absolute inset-0 bg-[#00FF99]/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div className="bg-accent-10 border border-accent-20 p-4 rounded-2xl text-center space-y-2 relative overflow-hidden group">
+                    <div className="absolute inset-0 bg-accent-10 opacity-0 group-hover:opacity-100 transition-opacity" />
                     <span className="block text-2xl">⚡</span>
                     <h5 className="font-display font-bold text-xs text-white">Full-Stack Design Integrators</h5>
                     <p className="text-[10px] text-brand-muted leading-relaxed font-light">
@@ -870,7 +870,7 @@ export default function ProjectGallery() {
                         setActiveLightboxImage(null);
                         setShowRuler(false);
                       }}
-                      className="bg-[#00FF99] hover:bg-[#00e1cf] text-black font-extrabold text-[10px] tracking-wider uppercase py-2 px-4 rounded-xl w-full cursor-pointer shadow-md inline-flex items-center justify-center gap-1.5 transition-all mt-1 leading-none"
+                      className="bg-accent hover:bg-accent text-black font-extrabold text-[10px] tracking-wider uppercase py-2 px-4 rounded-xl w-full cursor-pointer shadow-md inline-flex items-center justify-center gap-1.5 transition-all mt-1 leading-none"
                     >
                       Launch Case Simulator <ExternalLink className="w-3.5 h-3.5" />
                     </button>

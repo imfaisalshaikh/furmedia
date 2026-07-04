@@ -136,14 +136,14 @@ export default function OracleChatbot() {
               setIsOpen(true);
               setIsMinimized(false);
             }}
-            className="flex items-center gap-3 bg-black/90 text-[#00FF99] px-5 py-3 rounded-full font-mono text-xs uppercase tracking-widest font-bold shadow-[0_0_20px_rgba(0,255,153,0.15)] border border-[#00FF99]/30 hover:border-[#00FF99]/70 hover:shadow-[0_0_25px_rgba(0,255,153,0.25)] transition-all duration-300 cursor-pointer"
+            className="flex items-center gap-3 bg-black/90 text-accent px-5 py-3 rounded-full font-mono text-xs uppercase tracking-widest font-bold shadow-[0_0_20px_rgba(0,255,153,0.15)] border-accent-20 hover:border-accent-70 hover:shadow-[0_0_25px_rgba(0,255,153,0.25)] transition-all duration-300 cursor-pointer"
           >
             <div className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00FF99] opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#00FF99]"></span>
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
             </div>
             <span>Executive Oracle</span>
-            <Sparkles className="w-4 h-4 text-[#00FF99]" />
+            <Sparkles className="w-4 h-4 text-accent" />
           </motion.button>
         )}
 
@@ -155,19 +155,19 @@ export default function OracleChatbot() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 40 }}
             transition={{ type: "spring", damping: 25, stiffness: 220 }}
-            className={`w-[360px] md:w-[400px] bg-[#060606] border border-white/[0.08] shadow-[0_10px_50px_rgba(0,0,0,0.8)] rounded-2xl overflow-hidden flex flex-col transition-all duration-300 ${
+                className={`w-[360px] md:w-[400px] bg-[#060606] border border-white/[0.08] shadow-[0_10px_50px_rgba(0,0,0,0.8)] rounded-2xl overflow-hidden flex flex-col transition-all duration-300 ${
               isMinimized ? "h-[60px]" : "h-[500px]"
             }`}
           >
             {/* Header */}
             <div className="px-5 py-4 border-b border-white/[0.06] bg-[#0a0a0a]/95 flex items-center justify-between">
               <div className="flex items-center gap-2.5">
-                <div className="w-7 h-7 rounded-full bg-[#00FF99]/10 border border-[#00FF99]/20 flex items-center justify-center">
-                  <Bot className="w-4 h-4 text-[#00FF99]" />
+                <div className="w-7 h-7 rounded-full bg-accent-10 border-accent-20 flex items-center justify-center">
+                  <Bot className="w-4 h-4 text-accent" />
                 </div>
                 <div>
                   <h4 className="font-display font-medium text-xs uppercase tracking-wider text-white flex items-center gap-1.5">
-                    ORACLE <span className="text-[8px] font-mono text-[#00FF99] tracking-widest bg-[#00FF99]/10 border border-[#00FF99]/20 px-1.5 py-0.5 rounded-full">v3.5 LITE</span>
+                    ORACLE <span className="text-[8px] font-mono text-accent tracking-widest bg-accent-10 border-accent-20 px-1.5 py-0.5 rounded-full">v3.5 LITE</span>
                   </h4>
                   <span className="text-[9px] font-mono text-white/40 uppercase block leading-none mt-0.5">
                     {isLoading ? "Consulting Engine..." : "Direct Channel Established"}
@@ -214,8 +214,8 @@ export default function OracleChatbot() {
                     >
                       <div
                         className={`rounded-xl px-4 py-3 text-xs leading-relaxed ${
-                          m.role === "user"
-                            ? "bg-[#00FF99] text-black font-extrabold shadow-[0_0_15px_rgba(0,255,153,0.15)]"
+                              m.role === "user"
+                                ? "bg-accent text-black font-extrabold shadow-[0_0_15px_rgba(0,255,153,0.15)]"
                             : "bg-[#111111] border border-white/[0.06] text-white/90"
                         }`}
                       >
@@ -231,12 +231,12 @@ export default function OracleChatbot() {
                   {/* Loading placeholder */}
                   {isLoading && (
                     <div className="flex flex-col mr-auto items-start max-w-[85%]">
-                      <div className="bg-[#111111] border border-white/[0.06] text-[#00FF99] rounded-xl px-4 py-3 text-xs flex items-center gap-2">
+                      <div className="bg-[#111111] border border-white/[0.06] text-accent rounded-xl px-4 py-3 text-xs flex items-center gap-2">
                         <span className="relative flex h-2 w-2">
-                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00FF99] opacity-75"></span>
-                          <span className="relative inline-flex rounded-full h-2 w-2 bg-[#00FF99]"></span>
+                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
+                          <span className="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
                         </span>
-                        <span className="font-mono text-[9px] uppercase tracking-widest text-[#00FF99] font-medium">Analyzing query...</span>
+                        <span className="font-mono text-[9px] uppercase tracking-widest text-accent font-medium">Analyzing query...</span>
                       </div>
                     </div>
                   )}
@@ -262,7 +262,7 @@ export default function OracleChatbot() {
                         <button
                           key={idx}
                           onClick={() => handleSendMessage(chip.text)}
-                          className="px-3 py-2 bg-white/[0.02] hover:bg-white/[0.06] border border-white/[0.06] hover:border-[#00FF99]/40 text-left rounded-lg text-[10px] text-white/80 transition-all duration-200 uppercase tracking-wider font-mono truncate cursor-pointer"
+                          className="px-3 py-2 bg-white/[0.02] hover:bg-white/[0.06] border border-white/[0.06] hover:border-accent-40 text-left rounded-lg text-[10px] text-white/80 transition-all duration-200 uppercase tracking-wider font-mono truncate cursor-pointer"
                         >
                           {chip.label}
                         </button>

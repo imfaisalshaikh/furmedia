@@ -26,7 +26,7 @@ export default function CompanySection() {
     >
       {/* SECTION HEADER */}
       <div className="border-b border-white/10 pb-8">
-        <span className="font-mono text-[10px] tracking-widest text-[#00FF99] uppercase block mb-3">{t("company_subtitle")}</span>
+        <span className="font-mono text-[10px] tracking-widest text-accent uppercase block mb-3">{t("company_subtitle")}</span>
         <h1 className="text-4xl md:text-7xl font-display font-extrabold tracking-tight leading-none text-white uppercase">
           {t("company_heading")}
         </h1>
@@ -36,7 +36,7 @@ export default function CompanySection() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
         <div className="lg:col-span-4 border border-white/[0.08] rounded-2xl p-6 bg-white/[0.02] hover:bg-white/[0.04] transition-all flex flex-col justify-between">
           <div className="space-y-4">
-            <span className="font-mono text-[10px] text-[#00FF99] bg-[#00FF99]/10 border border-[#00FF99]/20 px-3 py-1 rounded-full uppercase inline-block">
+            <span className="font-mono text-[10px] text-accent bg-accent-10 border-accent-20 px-3 py-1 rounded-full uppercase inline-block">
               ENGINE A
             </span>
             <h3 className="text-2xl font-display font-semibold text-white">{t("company_engine_a_title")}</h3>
@@ -44,19 +44,19 @@ export default function CompanySection() {
               {t("company_engine_a_desc")}
             </p>
           </div>
-          <div className="mt-8 pt-4 border-t border-white/[0.06] flex justify-between items-center text-xs font-mono text-brand-muted">
+            <div className="mt-8 pt-4 border-t border-white/[0.06] flex justify-between items-center text-xs font-mono text-brand-muted">
             <span>BI & SYSTEM CODES</span>
-            <span className="text-[#00FF99]">BUSINESS INTELLIGENCE</span>
+            <span className="text-accent">BUSINESS INTELLIGENCE</span>
           </div>
         </div>
 
         <div className="lg:col-span-4 flex flex-col items-center justify-center border border-[#00FF99]/20 rounded-2xl p-6 bg-black relative overflow-hidden text-center min-h-[180px]">
           <div className="absolute inset-0 grid-bg opacity-15 pointer-events-none"></div>
           <div className="space-y-3 z-10">
-            <div className="w-10 h-10 rounded-full border border-[#00FF99]/30 bg-[#00FF99]/5 mx-auto flex items-center justify-center font-mono text-[#00FF99] text-xs font-medium animate-pulse">
+            <div className="w-10 h-10 rounded-full border-accent-20 bg-accent-10 mx-auto flex items-center justify-center font-mono text-accent text-xs font-medium animate-pulse">
               &infin;
             </div>
-            <h4 className="text-xs font-mono text-[#00FF99] tracking-widest uppercase">{t("company_loop_title")}</h4>
+            <h4 className="text-xs font-mono text-accent tracking-widest uppercase">{t("company_loop_title")}</h4>
             <p className="text-[10px] text-brand-muted max-w-[200px] mx-auto leading-relaxed">
               {t("company_loop_desc")}
             </p>
@@ -122,9 +122,9 @@ export default function CompanySection() {
       <div className="space-y-8 pt-8 border-t border-white/[0.08]">
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
           <div className="max-w-2xl space-y-2">
-            <div className="flex items-center gap-2 text-[#00FF99]">
-              <HelpCircle className="w-4 h-4 text-[#00FF99]" />
-              <span className="font-mono text-xs uppercase tracking-widest text-[#00FF99]/80">Answer Engine Hub</span>
+            <div className="flex items-center gap-2 text-accent">
+              <HelpCircle className="w-4 h-4 text-accent" />
+              <span className="font-mono text-xs uppercase tracking-widest text-accent/80">Answer Engine Hub</span>
             </div>
             <h3 className="text-2xl md:text-3xl font-display font-medium text-white">
               Sovereign Q&A Knowledge Base
@@ -143,7 +143,7 @@ export default function CompanySection() {
               placeholder="Search analytical answers..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full bg-white/[0.02] border border-white/[0.1] rounded-full pl-10 pr-4 py-2.5 text-xs text-white focus:outline-none focus:border-[#00FF99] transition-colors font-mono"
+              className="w-full bg-white/[0.02] border border-white/[0.1] rounded-full pl-10 pr-4 py-2.5 text-xs text-white focus:outline-none focus:border-accent transition-colors font-mono"
             />
           </div>
         </div>
