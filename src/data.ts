@@ -4,6 +4,24 @@
  * metadata representations, and rich services mapping.
  */
 
+export const PROJECTS = [
+  {
+    id: 1,
+    tag: "SQL & Python",
+    title: "Automated Data Pipeline",
+    description: "Engineered a custom SQL/Python ingestion layer to automate complex reporting previously stuck in manual spreadsheets.",
+    color: "text-blue-400"
+  },
+  {
+    id: 2,
+    tag: "PowerBI & Excel",
+    title: "C-Suite Executive Dashboard",
+    description: "Developed a high-fidelity PowerBI dashboard that integrates Excel financial models into real-time visual business intelligence.",
+    color: "text-green-400"
+  }
+  // ... add your other items here
+];
+
 export interface ServiceDetail {
   id: string;
   name: string;
